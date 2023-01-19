@@ -46,3 +46,42 @@ https://medium.com/nerd-for-tech/install-visual-studio-code-fe3908c5cf15
 - Table
 - Form
 - Iframe
+
+# Session - 2 CSS
+
+## Summary
+
+### What is CSS?
+
+- CSS stands for Cascading Style Sheets
+- CSS describes how HTML elements are to be displayed on website.
+- CSS saves a lot of work. It can control the layout of multiple web pages all at once
+
+### Part - 1 (Basics)
+- Syntax of css
+- Three ways to insert CSS 
+  - Inline
+  - Internal
+  - External
+- Selectors
+- Id & class, universal & grouping
+- Combinator selectors
+- Pseudo class selectors
+- Pseudo element selectors
+
+
+### Part - 2 (Intermediate)
+- Text properties
+- CSS font properties
+- CSS background properties
+- Specificity, !important & calc(), max(), min()
+- Borders
+
+
+### Part - 3 (Advance)
+- Margin, padding & box model
+- CSS units (px, em, rem, %, vw, vh)
+- Lists and table CSS
+- Scrollbars
+  - overflow property
+
