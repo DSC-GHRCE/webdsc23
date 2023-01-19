@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS</title>
+    <style>
+      /*cdn link for google fonts*/
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap");
+
+      /*selectors*/
+      /*-------------------------------------simple selectors-------------------------------------*/
+
+      /* element selector - directly targeting an element using a tag name */
+      header {
+        color: rgb(38, 0, 255);
+      }
+      /* id selector - targeting an element using an id */
+      p#p {
+        color: red;
+      }
+      /* class selector - targeting an element using class */
+      p.paragraph {
+        color: rgb(255, 0, 238);
+      }
+      /* grouping selector - applying same stlyling to more than one elements */
+      .para2,
+      #head2 {
+        color: red;
+      }
+      /* universal selectors - selects every element in the webpage*/
+      * {
+        /* padding: 0; */
+        /* margin: 0; */
+      }
+      /*-------------------------------------simple selectors-------------------------------------*/
+
+      /*-------------------------------------combinator selectors-------------------------------------*/
+
+      /* descendant selector - selects all the paragraphs inside the div */
+      div.combinator_selector p {
+        color: red;
+      }
+      /* child selector - selects all the direct child paragraphs of the div
+      for example:
+      <div classname="combinator_selectors_child">
+        <p>lorem .... </p>  #direct child paragraph of div
+        <span>
+          <p>lorem .... </p>  #not a direct child paragraph of div
+        </span>
+      </div>
+       */
+      div.combinator_selectors_child > p {
+        color: red;
+      }
+      /* adjacent sibling selector - selects the just next pragraph of the div
+      <div classname="combinator_selectors_adjacent">
+      </div>
+      <p>lorem .... </p>  #this one
+      <p>lorem .... </p>  #not this one
+       */
+      div.combinator_selectors_adjacent + p {
+        color: red;
+      }
+      /* general sibling selector - selects all the paragraph after the div
+      <div classname="combinator_selectors_general">
+      </div>
+      <p>lorem .... </p>  #this one
+      <p>lorem .... </p>  #this one as well
+      <p>lorem .... </p>  #& this one too
+       */
+      div.combinator_selectors_general ~ p {
+        color: red;
+      }
+      /*-------------------------------------combinator selectors-------------------------------------*/
+
+      /*-------------------------------------Pseudo class selectors-------------------------------------*/
+      a {
+        color: green;
+        text-decoration: none;
+      }
+      /* :hover -> triggers when you hover over a link */
+      a:hover {
+        color: black;
+        text-decoration: underline;
+      }
+      /* :hover -> triggers when the link is already visited */
+      a:visited {
+        color: red;
+      }
+      /* :hover -> triggers when the link is clicked */
+      a:active {
+        color: purple;
+      }
+      /*-------------------------------------Pseudo class selectors-------------------------------------*/
+
+      /*-------------------------------------Pseudo element selectors-------------------------------------*/
+      /* selects the first letter in the paragraph */
+      p.pseudo_first_letter::first-letter {
+        color: red;
+      }
+      /* insert content after a paragraph */
+      p.pseudo_add_content::after {
+        content: "gdsc";
+        color: green;
+      }
+      /* insert content before a paragraph */
+      p.pseudo_add_content::before {
+        content: "gdsc";
+        color: green;
+      }
+      /* styles the first line of pragraph */
+      p.pseudo_first_line::first-line {
+        color: rgb(255, 0, 242);
+      }
+      /* defines the styling for selection */
+      p::selection {
+        color: blue;
+      }
+      /* defines the styling for bullets of a list */
+      li::marker {
+        color: red;
+      }
+      /*-------------------------------------Pseudo element selectors-------------------------------------*/
+      /*selectors*/
+
+      /*-------------------------------------Text styles-------------------------------------*/
+      p.text_styles_justify {
+        text-align: justify;
+        color: red;
+        line-height: 40px;
+      }
+
+      p.text_styles_transform {
+        text-transform: capitalize;
+      }
+
+      p.text_styles_shadow {
+        text-shadow: 10px -10px 3px black;
+      }
+
+      p.text_styles_decoration {
+        text-decoration: dashed line-through;
+        letter-spacing: 10px;
+      }
+
+      p.text_styles_font_family {
+        font-family: "Poppins", sans-serif;
+      }
+      /*-------------------------------------Text styles-------------------------------------*/
+
+      /*-------------------------------------Font styles-------------------------------------*/
+      p.font_styles {
+        font-style: oblique;
+        font-variant: small-caps;
+        font-weight: 700;
+      }
+      /*-------------------------------------Font styles-------------------------------------*/
+
+      /*-------------------------------------background styles-------------------------------------*/
+      div.background_styles {
+        height: 100vh; /*100% of viewport height*/
+        background-color: rgb(0, 0, 0);
+        background-image: url("/img1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: bottom;
+        background: black url("/img1.jpg") no-repeat fixed bottom;
+        background-size: cover;
+        /* background-image: linear-gradient(black, blue); */
+      }
+      /*-------------------------------------background styles-------------------------------------*/
+
+      /*-------------------------------------specificity & math function-------------------------------------*/
+      p.specificity_and_math_funs {
+        font-size: calc(10px + 50px);
+        font-size: min(10px, 50px);
+        font-size: max(10px, 50px);
+      }
+      /*-------------------------------------specificity & math function-------------------------------------*/
+
+      /*-------------------------------------units in css-------------------------------------*/
+      div.units_parent {
+        font-size: 20px;
+      }
+      p.units_em {
+        font-size: 2em;
+      }
+      p.units_rem {
+        font-size: 2rem;
+      }
+      .units_percent {
+        width: 50%;
+        height: 30px;
+        background: red;
+        color: white;
+      }
+      .units_vhvw {
+        margin: 10px 0px;
+        background-color: rgb(0, 34, 255);
+        height: 4vh; /*4% of vh*/
+        width: 80vw; /*80% of vw*/
+        color: white;
+      }
+      /*-------------------------------------units in css-------------------------------------*/
+
+      ul.styling_list li {
+        /* list-style-type: none; */
+        list-style-type: circle;
+      }
+
+      /*------------------------------------- styling a table -------------------------------------*/
+      table,
+      tr,
+      td,
+      th {
+        border: 1px solid red;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        padding: 10px 20px;
+      }
+      tr:nth-child(even) {
+        background: rgb(255, 154, 154);
+      }
+      tr:nth-child(odd) {
+        background: rgb(121, 255, 145);
+      }
+      tr:hover {
+        background: rgb(212, 212, 212);
+      }
+      /*------------------------------------- styling a table -------------------------------------*/
+
+      .div1-ov {
+        margin: 10px 0px;
+        border: 1px solid red;
+        height: 200px;
+        width: 300px;
+        overflow: auto;
+      }
+      .div2-ov {
+        border: 1px solid rgb(0, 76, 255);
+        height: 300px;
+        width: 280px;
+      }
+      .profile {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        border: 2px solid red;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- for selector -->
+    <h1>Simple selectors</h1>
+    <header>I'm element selector example</header>
+
+    <p id="p">I'm id selector example</p>
+
+    <p class="paragraph">I'm classname selector example</p>
+
+    <p class="para2">I'm part of grouping selector</p>
+    <h4 id="head2">I'm also a part of grouping selector</h4>
+
+    <hr />
+    <h1>Combinator selectors</h1>
+
+    <div class="combinator_selector">
+      <p>I'm part of combinator selectors</p>
+    </div>
+
+    <div class="combinator_selectors_child">
+      <p>
+        I'll get styled bcz i'm direct child of div having classname
+        <b>combinator_selectors_child</b>
+      </p>
+      <span>
+        <p>
+          I'll not get styled bcz i'm not a direct child of div having classname
+          <b>combinator_selectors_child</b>
+        </p>
+      </span>
+    </div>
+
+    <div class="combinator_selectors_adjacent"></div>
+    <p>
+      I'll get styled bcz i'm just after the div with class name
+      <b>combinator_selectors_adjacent</b>
+    </p>
+    <p>
+      I'll not get styled bcz i'm not just after the div with class name
+      <b>combinator_selectors_adjacent</b>
+    </p>
+
+    <div class="combinator_selectors_general"></div>
+    <p>
+      I'll get styled, cz i'm after the div with class name
+      <b>combinator_selectors_general</b>
+    </p>
+    <p>
+      I'll get styled, cz i'm after the div with class name
+      <b>combinator_selectors_general</b>
+    </p>
+    <p>
+      I'll get styled, cz i'm after the div with class name
+      <b>combinator_selectors_general</b>
+    </p>
+    <p>
+      I'll get styled, cz i'm after the div with class name
+      <b>combinator_selectors_general</b>
+    </p>
+
+    <hr />
+    <h1>Pseudo class selectors</h1>
+    <a href="https://gdsc-ghrce.vercel.app####" id="anchor_tag">click me</a>
+    <br />
+    <a href="https://gdsc-ghrce.vercel.app" id="anchor_tag">I'm visited</a>
+
+    <hr />
+    <h1>Pseudo element selectors</h1>
+
+    <p class="pseudo_first_letter">
+      Only the first letter will be styled, Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Vero, sapiente!
+    </p>
+
+    <p class="pseudo_first_line">
+      Only the first line will be styled, Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Vero, sapiente! Lorem ipsum dolor sit, amet consectetur
+      adipisicing elit. Eligendi soluta deserunt aliquam ex, velit eius rerum?
+      Delectus, laborum. At, illum! Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Vero, sapiente! Lorem ipsum dolor sit, amet consectetur
+      adipisicing elit. Eligendi soluta deserunt aliquam ex, velit eius rerum?
+      Delectus, laborum. At, illum!
+    </p>
+
+    <p class="pseudo_add_content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo suscipit
+      praesentium natus recusandae ipsa nisi necessitatibus maiores accusamus
+      facere qui.
+    </p>
+
+    <ul class="pseudo_list">
+      <li>1 list</li>
+      <li>2 list</li>
+      <li>3 list</li>
+    </ul>
+    <!-- for selector -->
+
+    <!-- text styles -->
+    <hr />
+    <h1>Text styles</h1>
+
+    <p class="text_styles_justify">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
+      placeat, dolorum autem odit architecto fugiat explicabo voluptate possimus
+      ut voluptates?
+    </p>
+
+    <p class="text_styles_decoration">
+      text decoration - Lorem, ipsum dolor sit amet consectetur adipisicing
+      elit. Eaque, exercitationem.
+    </p>
+
+    <p class="text_styles_transform">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, veniam?
+    </p>
+
+    <p class="text_styles_shadow">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, saepe!
+    </p>
+
+    <p class="text_styles_font_family">
+      font-family poppins - Lorem ipsum dolor, sit amet consectetur adipisicing
+      elit. Corporis, molestiae?
+    </p>
+    <!-- text styles -->
+
+    <!-- font styles -->
+    <hr />
+    <h1>Font styles</h1>
+
+    <p class="font_styles">
+      font styles - Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Vitae, repudiandae minima rem dolore excepturi corrupti placeat ab quas
+      repellat officiis?
+    </p>
+    <!-- font styles -->
+
+    <!-- background styles -->
+    <hr />
+    <h1>Background styles</h1>
+
+    <div class="background_styles"></div>
+    <!-- background styles -->
+
+    <!-- Specificity & maths functions styles -->
+    <hr />
+    <h1>Specificity & maths functions styles</h1>
+
+    <p class="specificity_and_math_funs">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum fugit eius
+      architecto enim fugiat quo reiciendis possimus temporibus distinctio
+      culpa!
+    </p>
+    <!-- Specificity & maths functions styles -->
+
+    <!-- Units in css  -->
+    <hr />
+    <h1>Units in css</h1>
+    <p class="units_px">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam ullam
+      accusamus libero exercitationem aliquid laudantium veniam eum temporibus
+      eius dolorem?
+    </p>
+    <div class="units_parent">
+      <p>
+        <b
+          >i'll have font size 2 times my parent's font size bcz i'm using em
+          unit
+        </b>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime soluta
+        in exercitationem omnis totam delectus magnam nam adipisci eos iusto.
+      </p>
+    </div>
+    <p class="units_rem">
+      <b
+        >i'll have font size 2 times root element's (i.e. html tag's) font size bcz i'm using rem unit
+      </b>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime soluta in
+      exercitationem omnis totam delectus magnam nam adipisci eos iusto.
+    </p>
+    <div class="units_percent">50% width</div>
+    <div class="units_vhvw">80vw</div>
+
+    <!-- for styling a list -->
+    <hr />
+    <h1>styling a list</h1>
+
+    <ul class="styling_list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <!-- for styling a list -->
+
+    <!-- for styling a table -->
+    <hr />
+    <h1>styling a table</h1>
+
+    <table>
+      <tr>
+        <th>no</th>
+        <th>color</th>
+        <th>name</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>red</td>
+        <td>verna</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>red</td>
+        <td>verna</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>red</td>
+        <td>verna</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>red</td>
+        <td>verna</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>red</td>
+        <td>verna</td>
+      </tr>
+    </table>
+    <!-- for styling a table -->
+
+    <!-- overflow properties -->
+    <hr />
+    <h1>Scrollbars & handling overflows</h1>
+    <div class="div1-ov">
+      <div class="div2-ov">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius ut, ipsam
+        debitis totam in tenetur facere deleniti quis animi nemo at ea saepe
+        distinctio ipsum temporibus quas consequuntur ratione asperiores. Ad,
+        hic. Maiores at, laborum aperiam possimus nulla soluta expedita hic
+        facere, quas enim aspernatur, dolorem odit totam! Iste nobis debitis
+        eaque harum ipsam cumque minima ducimus iure eos sunt.
+      </div>
+    </div>
+    <!-- overflow properties -->
+
+    <div class="profile">
+      <img src="/img2.jpg" alt="" />
+    </div>
+  </body>
+</html>
