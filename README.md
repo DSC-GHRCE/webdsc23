@@ -85,3 +85,18 @@ https://medium.com/nerd-for-tech/install-visual-studio-code-fe3908c5cf15
 - Scrollbars
   - overflow property
 
+# Session - 3 CSS
+
+## Summary
+
+### What is Layouting?
+- Layouting can be defined as a structuring the content on the webpage
+- There are various layouting system in the css for example: float, flex-box, grid.
+
+### Topics discussed
+- CSS positions
+- CSS flexbox
+- CSS grid
+- Responsive web design 
+  - media queries
+- CSS Animations
