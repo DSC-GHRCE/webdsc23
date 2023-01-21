@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Css Position</title>
+    <style>
+      html {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      body {
+        border: 5px solid rgb(4, 4, 39);
+        padding: 10px;
+        height: 520vh;
+      }
+      .static {
+        border: 3px solid red;
+        height: 30px;
+        position: static;
+      }
+      .relative {
+        border: 3px solid rgb(43, 255, 0);
+        height: 30px;
+        position: relative;
+        /* left: 20px; */
+        /* top: 100px; */
+        /* bottom: 10px; */
+      }
+      .absolute_container {
+        padding: 10px;
+        border: 5px solid rgb(5, 5, 56);
+        height: 200px;
+        /* position: relative; */
+      }
+      .absolute {
+        border: 3px solid rgb(255, 196, 0);
+        height: 30px;
+        /* position: absolute; */
+        /* top: 0;
+        left: 0; */
+        /* right: 100px; */
+      }
+      .fixed {
+        border: 3px solid rgb(136, 0, 255);
+        height: 30px;
+        /* position: fixed; */
+        /* right: 0; */
+        /* top: 50%; */
+      }
+      .sticky {
+        border: 3px solid rgb(255, 0, 157);
+        height: 30px;
+        position: sticky;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS Position</h1>
+      <style></style>
+    </header>
+
+    <div class="static">static</div>
+    <div class="relative">relative</div>
+    <div class="absolute_container">
+      <div class="absolute">absolute</div>
+    </div>
+    <div class="fixed">fixed</div>
+    <div class="sticky">sticky</div>
+  </body>
+</html>
