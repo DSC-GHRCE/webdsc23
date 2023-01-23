@@ -14,16 +14,21 @@ Here are some key topics to learning JavaScript:
     4. [String](#strings)
     5. [Arrays](#arrays)
     6. [Objects](#objects)
+    7. [Variable Scope]()
 4. [Control Flow](#control-flow)
 5. [Function](#functions)
-6. [Variable Scope]()
-7. [Closures & Callbacks]()
-8. [Object-Oriented]()
-    1. [Using Function]()
-    2. [Why not Classes]()
-9. [Error Handling]()
-10. [ES6 Features]()
-11. [Best Practices](#best-practices)
+    1. [Closures]()
+    2. [Callbacks]()
+6. [Functional Constructors](#functional-constructors)
+7. [Prototypal Inheritance](#prototypal-inheritance)
+8. [Modules](#modules)
+9. [Async JS](#asynchronous-programming-and-apis)
+10. [Promises](#promises)
+11. [ES6 Features](#es6-features)
+12. [Dom Manipulation and Events](#dom-manipulation-and-event-handling)
+13. [Browser Developer Tools](#browser-developer-tools)
+14. [Best Practices](#best-practices)
+15. [More Best Practices](#best-practices-for-during-programming)
 
 ## Intro to Javascript
 
@@ -180,7 +185,7 @@ JavaScript has various types of operators like arithmetic, comparison, and logic
     console.log(!x); // false
     ```
 
--   **Assignment operators**: used to assign values to variables, such as the basic assignment operator `(=)`, as well as compound assignment operators `(+=, -=, \*=, /=, %=, \*\*=)`. For example:
+-   **Assignment operators**: used to assign values to variables, such as the basic assignment operator `(=)`, as well as compound assignment operators `(+=, -=, *=, /=, %=, **=)`. For example:
 
     ```js
     let x = 5;
@@ -692,35 +697,357 @@ Here are some key points about functions in JavaScript:
 <img src="https://user-images.githubusercontent.com/50291544/214045534-ea3aad6b-99aa-4316-a568-b21ecf9f0609.png" height="225" />
 </p>
 
-### Objects and object-oriented programming
+### Functional Constructors
 
-Objects are a fundamental data type in JavaScript and are used to represent real-world entities. They consist of key-value pairs and can have methods, which are functions that are associated with an object. JavaScript is not a fully object-oriented language but has some OOP features like inheritance and encapsulation.
+A function constructor is a special type of function in JavaScript that is used to create objects.
+It is a regular function that is invoked with the new keyword to create an object and initialize its properties and methods.
 
-### Classes & Inheritance
+Here is an example of a simple function constructor:
+
+```js
+function Person(name) {
+    this.name = name;
+    this.greet = function () {
+        console.log("Hello, my name is " + this.name + ".");
+    };
+}
+
+let person = new Person("Vidhanshu");
+console.log(person.name); // "Vidhanshu"
+person.greet(); // "Hello, my name is Vidhanshu."
+```
+
+In this example, the `Person` function constructor is defined to take a single argument, `name`,
+which is used to initialize the `name` property of the object. The function also has a method, `greet`,
+which logs a message to the console. When the `new` keyword is used to create a new instance of the `Person` object,
+the `name` argument is passed to the constructor function, and the properties and methods are initialized.
+
+Function constructors are commonly used in JavaScript to create objects that have similar properties and methods.
+They provide a way to create objects with a consistent structure, and to define the behavior of those objects in a single place.
+
+_Function constructors are powerful, but also comes with a cost, that is,
+every object created with a function constructor has it's own copy of the function.
+It's better to use prototypes for methods._
+
+_It is also important to note that function constructors should be named
+with a capital letter to indicate that they are intended to be used with the new keyword._
+
+### Prototypal Inheritance
+
+In JavaScript, every object has a prototype property, which is a reference to another object.
+When a property or method is accessed on an object and it is not found,
+the JavaScript runtime looks for that property or method on the object's prototype.
+If it is not found there, it looks on the prototype's prototype, and so on, until it reaches the
+Object.prototype object at the top of the prototype chain.
+
+Here is an example of how prototypal inheritance works in JavaScript:
+
+```js
+let animal = {
+    eats: true,
+};
+
+let rabbit = {
+    jumps: true,
+};
+
+// __proto__ is a special property found in each and every object in JS
+rabbit.__proto__ = animal;
+
+console.log(rabbit.eats); // true
+```
+
+In this example, the `rabbit` object has its own `jumps` property, but it does not have an `eats` property.
+However, it can access the `eats` property from its prototype, which is the `animal` object.
+
+<!-- ### Classes & Inheritance -->
+
+### Modules
+
+Modules in JavaScript are a way to organize and reuse code.
+A module is a file that contains JavaScript code, and can be imported and exported by other files.
+This allows you to split your code into smaller, more manageable pieces, and to share common functionality across multiple parts of your application.
+
+JavaScript has two main ways of working with modules:
+
+-   **CommonJS**: CommonJS is a module system used in Node.js to handle dependencies. In CommonJS, modules are defined using the exports object. To import a module, you use the require() function.
+
+    ```js
+    // myModule.js
+    exports.myValue = 5;
+    exports.myFunction = function () {
+        console.log("Hello, world!");
+    };
+
+    // main.js
+    const myModule = require("./myModule.js");
+    console.log(myModule.myValue); // 5
+    myModule.myFunction(); // "Hello, world!"
+    ```
+
+-   **ES6 Modules**: ES6 modules is a new way to handle modules in JavaScript, and is supported in modern browsers. In ES6, modules are defined using the export keyword, and imported using the import keyword.
+
+    ```js
+    // myModule.js
+    export const myValue = 5;
+    export function myFunction() {
+        console.log("Hello, world!");
+    }
+
+    // main.js
+    import { myValue, myFunction } from "./myModule.js";
+    console.log(myValue); // 5
+    myFunction(); // "Hello, world!"
+    ```
+
+With both of these systems, you can export and import variables, functions, classes and other types of data.
+Also, you can use `export default `to export a single value by default,
+and you can use `import myModule from './myModule'` to import the default export.
+
+Modules are useful for structuring your code, and make it easier to manage dependencies and maintain your codebase over time.
+They allow you to split your code into smaller, more manageable pieces, and to share common functionality
+
+### Asynchronous programming and APIs
+
+Asynchronous programming is a way of writing code that allows it to handle multiple tasks at the same time,
+rather than executing tasks one after the other in a synchronous manner.
+This is particularly useful when working with tasks that take a long time to complete, such as network requests or file I/O operations.
+
+JavaScript has several ways to handle asynchronous code, including:
+
+-   **Callbacks**: A callback function is a function that is passed as an argument to another function and is called when the first function has completed its task. Callbacks are widely used in JavaScript, and are the oldest way to handle async code.
+
+    ```js
+    function myFunction(callback) {
+        setTimeout(() => {
+            callback("Hello, world!");
+        }, 1000);
+    }
+
+    myFunction((response) => {
+        console.log(response); // "Hello, world!"
+    });
+    ```
+
+-   **Promises**: Promises are objects that represent the eventual completion (or failure) of an asynchronous operation, and its resulting value. Promises provide a way to handle async code in a more elegant and easy to reason about way, by allowing you to attach callbacks to the promise that will be called when the promise is resolved or rejected.
+
+    ```js
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Hello, world!");
+        }, 1000);
+    });
+
+    promise.then((response) => {
+        console.log(response); // "Hello, world!"
+    });
+    ```
+
+-   **Async/await**: Async/await is a more recent addition to JavaScript, and provides a way to write async code using a more synchronous-looking syntax. Async/await is built on top of promises and makes it easier to reason about async code.
+
+    ```js
+    async function myFunction() {
+        let response = await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Hello, world!");
+            }, 1000);
+        });
+        console.log(response); // "Hello, world!"
+    }
+
+    myFunction();
+    ```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/214175741-d6e43b00-9a09-40fd-be6e-2799799b93a3.png" height="270" />
+</p>
+
+### Promises
+
+Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation, and its resulting value. Promises provide a way to handle async code in a more elegant and easy to reason about way, by allowing you to attach callbacks to the promise that will be called when the promise is resolved or rejected.
+
+Here is an example of a simple promise:
+
+```js
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Hello, world!");
+    }, 1000);
+});
+
+promise.then((response) => {
+    console.log(response); // "Hello, world!"
+});
+```
+
+In this example, a new promise is created using the `Promise` constructor. The constructor takes a single argument,
+a function called the executor. The executor function takes two arguments, `resolve` and `reject`,
+which are functions that can be used to resolve or reject the promise.
+In this example, the promise is resolved with the string "Hello, world!" after one second using `setTimeout` function.
+
+Once the promise is created, you can attach callbacks to it using the `.then()` method. The `.then()` method takes a single argument,
+a callback function that will be called when the promise is resolved.
+The callback function takes a single argument, the value that the promise was resolved with.
+
+You can also attach callbacks for when the promise is rejected using the `.catch()` method.
+
+```js
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject(new Error("Something went wrong!"));
+    }, 1000);
+});
+
+promise
+    .then((response) => {
+        console.log(response);
+    })
+    .catch((error) => {
+        console.log(error); // "Error: Something went wrong!"
+    });
+```
+
+Promises also allows to chain multiple promises together using `.then()` method,
+which makes it easy to handle multiple async operations in a more readable and maintainable way.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/214176241-f85a27fe-afd7-48f6-93fb-885f952f910f.png" height="350px" />
+</p>
+
+### ES6 features
+
+ECMAScript 6 (ES6) is the latest version of JavaScript, which introduces new features such as arrow functions,
+template literals, destructuring, and more. These features make the code more concise, readable, and expressive.
+
+Some of the other important features are:
+
+1. **let and const**
+
+```js
+let x = 5;
+x = 6;
+console.log(x); // 6
+
+const y = 7;
+y = 8; // TypeError: Assignment to constant variable.
+console.log(y);
+```
+
+2. **Template literals**
+
+    ```js
+    let name = "John";
+    console.log(`Hello, ${name}!`); // "Hello, John!"
+    ```
+
+3. **Arrow functions**
+
+    ```js
+    let myFunction = (x, y) => x + y;
+    console.log(myFunction(5, 2)); // 7
+    ```
+
+4. **Destructuring assignment**
+
+    ```js
+    let myArray = [1, 2, 3];
+    let [a, b, c] = myArray;
+    console.log(a); // 1
+    console.log(c); // 3
+    console.log(b); // 2
+    ```
+
+5. **Classes**
+
+    ```js
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        greet() {
+            console.log(`Hello, my name is ${this.name}.`);
+        }
+    }
+    let john = new Person("John");
+    john.greet(); // "Hello, my name is John."
+    ```
+
+6. **Modules**
+
+    ```js
+    // myModule.js
+    export const myValue = 5;
+    export function myFunction() {
+        console.log("Hello, world!");
+    }
+
+    // main.js
+    import { myValue, myFunction } from "./myModule.js";
+    console.log(myValue); // 5
+    myFunction(); // "Hello, world!"
+    ```
+
+7. **Promises**
+
+    ```js
+    function getData() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({ data: "Hello, world!" });
+            }, 1000);
+        });
+    }
+    getData().then((response) => console.log(response.data)); // "Hello, world!"
+    ```
+
+8. **Spread operator and rest parameters**
+
+    ```js
+    let myArray = [1, 2, 3];
+    let myOtherArray = [4, 5, ...myArray];
+    console.log(myOtherArray); // [4, 5, 1, 2, 3]
+
+    function myFunction(x, y, ...args) {
+        console.log(x); // 1
+        console.log(y); // 2
+        console.log(args); // [3, 4, 5]
+    }
+    myFunction(1, 2, 3, 4, 5);
+    ```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/214176475-a870da5d-7a3a-46b5-9068-8aecdbbcf9c0.png" height="300px" />
+</p>
 
 ### DOM manipulation and event handling
 
 The Document Object Model (DOM) is an interface used to access and manipulate the content of a web page. JavaScript can be used to interact with the DOM, for example, to change the content, style, or layout of a page. Event handling is used to respond to user interactions with a web page, such as clicks, mouseovers, and key presses.
 
-### Asynchronous programming and APIs
-
-JavaScript is a single-threaded language, which means that it can only execute one task at a time. Asynchronous programming allows you to handle multiple tasks at the same time, for example, by using callbacks or Promises. JavaScript can also be used to access data from external sources using Application Programming Interfaces (APIs).
-
-### ES6 features
-
-ECMAScript 6 (ES6) is the latest version of JavaScript, which introduces new features such as arrow functions, template literals, destructuring, and more. These features make the code more concise, readable, and expressive. Some of the other important features are :
-
-### Modules
-
-a way to organize and reuse code
-
-### Promises
-
-a way to handle asynchronous operations
-
 ### Browser developer tools
 
 Browser developer tools are built-in tools that allow developers to inspect and debug web pages. These tools can be used to inspect the DOM, view network requests, and debug JavaScript code. They can also be used to test and optimize web pages for performance.
+
+Here are some of the key features of browser developer tools:
+
+1. **Inspect Element**: Allows you to inspect the HTML and CSS of a web page, and see how the page is rendered in the browser. You can also edit the HTML and CSS directly in the browser, and see the changes in real-time.
+
+2. **Javascript Console**: Allows you to interact with JavaScript code running on a web page. You can input JavaScript commands, view and track errors and logs, and debug JavaScript code.
+
+3. **Network**: Allows you to monitor and analyze the network traffic on a web page. You can see the request and response headers, view the timing of the requests, and see the resources that are loaded on the page.
+
+4. **Performance**: Allows you to measure the performance of a web page and identify bottlenecks. You can track the CPU and memory usage, view the call stack and profile the performance of JavaScript code.
+
+5. **Application**: Allows you to view and manage the storage, cookies and other data that a website uses.
+
+6. **Security**: Allows you to inspect security-related information such as certificate details, cookies, and other sensitive information.
+
+7. **Audits**: Allows you to analyze web pages and identify performance, accessibility and best practices issues.
+
+8. **Device Mode**: Allows you to test your website's design and functionality on different devices and screen sizes.
+
+All these features can be accessed via the developer tools, which can be opened by right-clicking on a web page and selecting "Inspect" or by using the keyboard shortcut (F12 or Cmd+Opt+I on Mac) in most modern browsers.
+
+In addition to these features, most browser developer tools also provide additional functionality such as the ability to take screenshots and record videos of the web page, and the ability to debug mobile devices remotely.
 
 ## Best Practices
 
@@ -757,3 +1084,16 @@ And if you have any question or need help don't hesitate to ask me.
 <p align="center">
 <b>!!! ENJOY PROGRAMMING !!!</b>
 </p>
+
+<!-- ![high-level-language](https://user-images.githubusercontent.com/50291544/213943109-adcd807c-c1fc-4a33-a943-f9f771aaaa0f.png) -->
+<!-- ![js-usages](https://user-images.githubusercontent.com/50291544/213943585-40a29806-eb15-4f9b-8a7f-f134dc70bc14.png) -->
+<!-- ![js-vs-java](https://user-images.githubusercontent.com/50291544/213943734-a6d903f9-228d-4ac5-b79f-754b8a6f55a2.jpg) -->
+<!-- ![js_integer+string=string](https://user-images.githubusercontent.com/50291544/213945781-b04356f8-388d-4777-8e52-dd49da1ab5c1.jpg) -->
+<!-- ![datatype](https://user-images.githubusercontent.com/50291544/213945966-0b1b0dad-83fa-489f-bd19-16857e492302.png) -->
+<!-- ![drycode](https://user-images.githubusercontent.com/50291544/214037879-f2f4abbb-ab0b-47fb-a818-2d5e0aa1df6f.png) -->
+<!-- ![null-undefined](https://user-images.githubusercontent.com/50291544/214041773-c7298a01-6fcf-420f-820a-3d4d5a69dd71.jpg) -->
+<!-- ![everything-is-obj](https://user-images.githubusercontent.com/50291544/214042839-c34eac70-2ff8-4867-bc19-d8d657500940.jpg) -->
+<!-- ![operators](https://user-images.githubusercontent.com/50291544/214043116-3b94baf0-3cc1-4cc1-9994-2ab588893ba1.png) -->
+<!-- ![variables](https://user-images.githubusercontent.com/50291544/214043879-f04dac18-86f1-485c-aaf0-ace481b207dc.jpg) -->
+<!-- ![no-meme](https://user-images.githubusercontent.com/50291544/214045534-ea3aad6b-99aa-4316-a568-b21ecf9f0609.png) -->
+<!-- ![async](https://user-images.githubusercontent.com/50291544/214175741-d6e43b00-9a09-40fd-be6e-2799799b93a3.png) -->
