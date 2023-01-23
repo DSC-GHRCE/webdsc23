@@ -1,0 +1,735 @@
+# All About Javascript
+
+Here are some key topics to learning JavaScript:
+
+1. [Javascript](#intro-to-javascript)
+   1. [What is JS](#what-is-javascript)
+   2. [History of JS](#history-of-javascript)
+   3. [Use cases of JS](#use-cases-for-javascript)
+2. [The common confusion](#javascript-vs-java)
+3. [Basics](#basics-of-javascript)
+   1. [Datatypes](#datatypes)
+   2. [Operators](#operators)
+   3. [Variables](#variables)
+   4. [String](#strings)
+   5. [Arrays](#arrays)
+   6. [Objects](#objects)
+4. [Control Flow](#control-flow)
+5. [Function](#functions)
+6. [Variable Scope]()
+7. [Closures & Callbacks]()
+8. [Object-Oriented]()
+   1. [Using Function]()
+   2. [Why not Classes]()
+9. [Error Handling]()
+10. [ES6 Features]()
+11. [Best Practices](#best-practices)
+
+## Intro to Javascript
+
+### What is JavaScript
+
+JavaScript is a high-level, interpreted programming language that is primarily used to create interactive and dynamic web pages. It is a client-side language, which means that the code is executed by the user's browser rather than on a server. JavaScript is also used for server-side programming with technologies such as Node.js.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/213943109-adcd807c-c1fc-4a33-a943-f9f771aaaa0f.png" height="325px" />
+</p>
+
+### History of JavaScript
+
+JavaScript was first developed in 1995 by Brendan Eich at Netscape. It was originally called Mocha, then changed to LiveScript, and finally named JavaScript. It was standardized in the ECMAScript language specification, with the latest version being ES2021.
+
+### Use cases for JavaScript
+
+JavaScript is primarily used for web development and creating interactive user interfaces. This includes things like form validation, creating animations, and handling user events. JavaScript can also be used to create server-side applications using technologies like Node.js and can be used for things like automation, creating desktop and mobile apps using frameworks like Electron or React Native.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/213943585-40a29806-eb15-4f9b-8a7f-f134dc70bc14.png" height="300px" />
+</p>
+
+### Javascript vs Java
+
+JavaScript and Java are both programming languages, but they are used for different purposes and have some key differences.
+
+Java is primarily used for building standalone applications and mobile apps, while JavaScript is primarily used for building interactive front-end web applications and browser scripts.
+
+Javascript was originally named **Mocha**, but quickly became known as **LiveScript** and, later, **JavaScript**.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/213943734-a6d903f9-228d-4ac5-b79f-754b8a6f55a2.jpg" height="300px" />
+</p>
+
+## Basics of Javascript
+
+### Datatypes
+
+In JavaScript, there are several different data types that can be used to store different types of values. These include:
+
+E.g. `Numbers`, `String`, `Boolean`, `Array`, `Objects`, `Symbols`, `Function`, `Undefined`, `Null`, etc...
+
+```js
+// JavaScript has single type of number that is a 64-bit IEEE 754 double.
+// Doubles have a 52-bit mantissa, which is enough to store integers
+// up to about (9 x 10 ^ 15) precisely means upto 9 QUADRILLION numbers...
+
+// numbers, int, double, float
+8; // 8
+8.0; // 8
+8.3; // 8.3
+
+8 + 8; // 16
+8.0 + 8.0; // 16
+8.3 + 8.3; // 16.6
+
+8 - 8; // 0
+5.5 - 0.2; // 5.3
+
+8 ** 2; // 64  (8 to the power of 2)
+8 ** 3; // 512 (8 to the power of 3)
+
+8 / 2; // 4
+8 / 3; // 2.6666666666666665
+
+// strings
+("Hello World!");
+"Hello" + "World!"; // also gives "Hello World!"
+
+"Hello World".length; // 11
+
+"Hello World".charAt(0); // "H"
+"Hello World".substring(0, 5); // "Hello"
+"Hello World".substr(0, 5); // again "Hello"
+"Hello World".slice(0, 5); // outputs the same thing again
+
+"Hello-World".split("-"); // ["Hello", "World"]
+
+// fun thing about number and string
+1 + 1; // gives 2 as expected right!
+1 + "1"; // gives 11, the childhood joke was correct
+// this is known as type coercion,
+// where JavaScript automatically converts the operands
+// to the same data type before performing the operation.
+
+// fun time now
+1; // 1
+1 + 2; // 3
+1 + 2 + 3; // 6
+1 + 2 + 3 + 4; // 10
+1 + 2 + 3 + 4 + "5"; // "12345"
+
+// boolean
+true; // 1, true,  enabled,  yes, on
+false; // 0, false, disabled, no,  off
+
+// special types
+undefined; // danger: not to use :) means a variable is declared but not assigned any value
+null; // this indicates a variable is assigned with no value
+NaN; // it shows a variable is not a number
+
+// to check types
+typeof "hello"; // "string"
+
+typeof 42; // "number"
+
+typeof true; // "boolean"
+
+typeof [1, 2, 3]; // "object" (arrays are considered objects in JavaScript)
+
+typeof { fname: "Sobhan", lname: "Bera" }; // "object"
+
+typeof null; // "object"
+
+typeof undefined; // "undefined"
+```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/213945966-0b1b0dad-83fa-489f-bd19-16857e492302.png" height="300" />
+</p>
+
+### Operators
+
+Operators are used to perform operations on variables and data types.
+JavaScript has various types of operators like arithmetic, comparison, and logical operators.
+
+- **Arithmetic operators**: used to perform mathematical operations, such as addition `(+)`, subtraction `(-)`, multiplication `(\*)`, division `(/)`, modulus `(%)`, and exponentiation `(**)`. For example:
+
+  ```js
+  let x = 5;
+  let y = 2;
+  console.log(x + y); // 7
+  console.log(x - y); // 3
+  console.log(x * y); // 10
+  console.log(x / y); // 2.5
+  console.log(x % y); // 1
+  console.log(x ** y); // 25
+  ```
+
+- **Comparison operators**: used to compare values, such as equality `(==)`, inequality `(!=)`, greater than `(>)`, less than `(<)`, greater than or equal to `(>=)`, and less than or equal to `(<=)`. For example:
+
+  ```js
+  let x = 5;
+  let y = 2;
+  console.log(x == y); // false
+  console.log(x != y); // true
+  console.log(x > y); // true
+  console.log(x < y); // false
+  console.log(x >= y); // true
+  console.log(x <= y); // false
+  ```
+
+- **Logical operators**: used to perform logical operations, such as and `(&&)`, or `(||)`, and not `(!)`. For example:
+
+  ```js
+  let x = true;
+  let y = false;
+  console.log(x && y); // false
+  console.log(x || y); // true
+  console.log(!x); // false
+  ```
+
+- **Assignment operators**: used to assign values to variables, such as the basic assignment operator `(=)`, as well as compound assignment operators `(+=, -=, \*=, /=, %=, \*\*=)`. For example:
+
+  ```js
+  let x = 5;
+  x = x + 2;
+  console.log(x); // 7
+
+  let y = 5;
+  y += 2;
+  console.log(y); // 7
+  ```
+
+- **Conditional (ternary) operator**: used to perform a ternary operation, a shorthand for an if-else statement. The syntax is: `condition ? statement1 : statement2`. For example:
+
+  ```js
+  let x = 5;
+  let y = 2;
+  let min = x < y ? x : y;
+  console.log(min); // 2
+  ```
+
+- **Unary operators**: which operate on only one operand, like `typeof`, `delete`, `void`, and others. For example:
+
+  ```js
+  let x = "hello";
+  console.log(typeof x); // string
+
+  let y = { a: 1 };
+  delete y.a;
+  console.log(y); // {}
+  ```
+
+- **Spread operator**: It allows the elements of an iterable to be expanded in places where zero or more arguments for function calls or elements for array literals are expected.
+
+  ```js
+  let arr = [1, 2, 3];
+  console.log(...arr); // 1 2 3
+  console.log(Math.max(...arr)); // 3
+  ```
+
+### Variables
+
+In JavaScript, variables are used to store data. They are used to store different types of values such as numbers, strings, arrays, and objects. Variables can be declared using the keyword "var", "let" or "const".
+
+- The `var` keyword is used to declare a variable in JavaScript. Variables declared with "var" are function scoped, which means they are only accessible within the function where they are declared.
+- The `let` keyword is similar to "var", but variables declared with "let" are block-scoped. This means they are only accessible within the block of code where they are declared.
+- The `const` keyword is used to declare a variable which cannot be reassigned.
+
+```js
+var a = "hello";
+let b = "world";
+console.log(a, b); // output will be "hello world"
+
+// you can change the value of any variable declared using
+// let and var keyword
+a = "how are";
+b = "you";
+console.log(a, b); // now output will be "how are you"
+
+const SCREEN_WIDTH = 29;
+console.log(SCREEN_WIDTH); // output will be 29
+
+SCREEN_WIDTH = 30; // Error: Attempted to assign to readonly property.
+```
+
+JavaScript variables don't have to be explicitly declared with a type, and the same variable can hold different types of values at different times.
+
+```js
+let a = 8; // here a is integer
+console.log(a); // 8 - without error
+
+a = "Hello World!"; // now a is a string
+console.log(a); // output without error here too
+```
+
+### Strings
+
+Strings are used to represent text. They can be declared using single or double quotes, and you can use the same quotes inside the string as long as they are escaped.
+
+```js
+let str1 = "Hello World!";
+let str2 = "Hey!";
+```
+
+JavaScript provides several built-in methods for working with strings, such as:
+
+- **length**: returns the number of characters in a string
+- **indexOf(substr)**: returns the index of the first occurrence of a substring within a string
+- **substring(start, end)**: returns a portion of a string
+- **toUpperCase() / toLowerCase()**: returns the string in all uppercase or lowercase letters
+- **split(delimiter)**: splits a string into an array of substrings based on a delimiter
+- **replace(oldValue, newValue)**: replaces all occurrences of a string with another string
+
+```js
+let str = "Hello World!";
+console.log(str.length); // 12
+
+console.log(str.charAt(0)); // "H"
+
+console.log(str.indexOf("World")); // 6
+
+console.log(str.substring(6, 11)); // "World"
+
+console.log(str.toUpperCase()); // "HELLO WORLD!"
+console.log(str.toLowerCase()); // "hello world!"
+
+console.log(str.split(" ")); // ["Hello", "World!"]
+
+console.log(str.replace("World", "JavaScript")); // "Hello JavaScript!"
+
+let str1 = "Hello";
+let str2 = "World!";
+console.log(str1.concat(" ", str2)); // "Hello World!"
+
+let str = "    Hello World!    ";
+console.log(str.trim()); // "Hello World!"
+
+let str = "Hello";
+console.log(str.repeat(3)); // "HelloHelloHello"
+```
+
+JavaScript also supports template literals, which allow you to include expressions inside strings using the ${expression} syntax.
+
+```js
+let name = "Sobhan";
+let age = 20;
+console.log(`My name is ${name} and I am ${age} years old.`);
+// Output: My name is Sobhan and I am 20 years old.
+```
+
+### Arrays
+
+In JavaScript, arrays are used to store a collection of values.
+They can be declared using square brackets, and values are separated by commas.
+
+```js
+let arr = [1, 2, 3, 4, 5];
+console.log(arr); // [1, 2, 3, 4, 5]
+```
+
+JavaScript provides several built-in methods for working with arrays, such as:
+
+- **push(element)**: adds one or more elements to the end of an array
+- **pop()**: removes the last element of an array
+- **shift()**: removes the first element of an array
+- **unshift(element)**: adds one or more elements to the beginning of an array
+- **slice(start, end)**: returns a new array with a selected range of elements
+- **splice(start, deleteCount, item1, item2, ...)**: removes and/or adds new elements to an array
+- **reverse()**: reverses the order of elements in an array
+- **sort()**: sorts the elements of an array in alphabetical or numerical order
+- **forEach(function)**: calls a function for each element in an array
+- **map(function)**: creates a new array by calling a function for each element in an array
+- **filter(function)**: creates a new array with all elements that pass a test
+- **reduce(function)**: applies a function to each element in an array, and returns a single value
+
+```js
+let arr = [1, 2, 3];
+arr.push(4);
+console.log(arr); // [1, 2, 3, 4]
+
+let arr = [1, 2, 3];
+arr.pop();
+console.log(arr); // [1, 2]
+
+let arr = [1, 2, 3];
+arr.shift();
+console.log(arr); // [2, 3]
+
+let arr = [1, 2, 3];
+arr.unshift(0);
+console.log(arr); // [0, 1, 2, 3]
+
+let arr = [1, 2, 3];
+arr.unshift(0);
+console.log(arr); // [0, 1, 2, 3]
+
+let arr = [1, 2, 3, 4, 5];
+arr.splice(2, 1, 6);
+console.log(arr); // [1, 2, 6, 4, 5]
+
+let arr = [1, 2, 3];
+arr.reverse();
+console.log(arr); // [3, 2, 1]
+
+let arr = [3, 2, 1];
+arr.sort();
+console.log(arr); // [1, 2, 3]
+
+let arr = [1, 2, 3];
+arr.forEach(function (element) {
+  console.log(element);
+});
+// Output: 1, 2, 3
+
+let arr = [1, 2, 3];
+let newArr = arr.map(function (element) {
+  return element * 2;
+});
+console.log(newArr); // [2, 4, 6]
+
+let arr = [1, 2, 3, 4, 5];
+let newArr = arr.filter(function (element) {
+  return element % 2 === 0;
+});
+console.log(newArr); // [2, 4]
+
+let arr = [1, 2, 3, 4];
+let sum = arr.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+});
+console.log(sum); // 10
+```
+
+### Objects
+
+In JavaScript, objects are used to store and organize data.
+They are a collection of key-value pairs, where each key is a string and each value can be any data type,
+including another object.
+
+There are several ways to create objects in JavaScript:
+
+- **Object literals**: Objects can be created using curly braces {} and key-value pairs separated by a colon. For example:
+
+  ```js
+  let obj = {
+    key1: "value1",
+    key2: "value2",
+    key3: "value3",
+  };
+  ```
+
+- **Object constructor**: Objects can be created using the built-in Object constructor. For example:
+
+  ```js
+  let obj = new Object();
+  obj.key1 = "value1";
+  obj.key2 = "value2";
+  obj.key3 = "value3";
+  ```
+
+- **`Object.create()`**: Objects can be created using the Object.create() method. For example:
+
+  ```js
+  let obj = Object.create(null);
+  obj.key1 = "value1";
+  obj.key2 = "value2";
+  obj.key3 = "value3";
+  ```
+
+You can access the properties of an object using dot notation or bracket notation. For example:
+
+```js
+console.log(obj.key1); // "value1"
+console.log(obj["key1"]); // "value1"
+```
+
+You can also add, modify, and delete properties of an object using the same notation. For example:
+
+```js
+obj.key4 = "value4";
+obj.key1 = "new value1";
+delete obj.key2;
+```
+
+JavaScript objects are also commonly used to store functions, which are known as methods. For example:
+
+```js
+let obj = {
+  x: 5,
+  y: 2,
+  add: function () {
+    return this.x + this.y;
+  },
+};
+console.log(obj.add()); // 7
+```
+
+Objects have several built-in methods that can be used to manipulate and interact with their properties. Here are a few examples:
+
+- **`Object.keys(obj)`**: Returns an array of the object's own enumerable property names.
+
+  ```js
+  let obj = { a: 1, b: 2, c: 3 };
+  console.log(Object.keys(obj)); // ["a", "b", "c"]
+  ```
+
+- **`Object.values(obj)`**: Returns an array of the object's own enumerable property values.
+
+  ```js
+  let obj = { a: 1, b: 2, c: 3 };
+  console.log(Object.values(obj)); // [1, 2, 3]
+  ```
+
+- **`Object.freeze(obj)`**: Freezes an object, making it immutable so that other code can't delete or change any properties.
+
+  ```js
+  let obj = { a: 1, b: 2 };
+  Object.freeze(obj);
+  obj.a = 3; // This will have no effect
+  console.log(obj.a); // 1
+  ```
+
+- **`Object.isFrozen(obj)`**: Returns a Boolean indicating if an object is frozen.
+
+  ```js
+  let obj = { a: 1, b: 2 };
+  console.log(Object.isFrozen(obj)); // false
+  Object.freeze(obj);
+  console.log(Object.isFrozen(obj)); // true
+  ```
+
+- **`Object.seal(obj)`**: Seals an object, making it non-extensible so that new properties can't be added, but existing properties can still be modified.
+
+  ```js
+  let obj = { a: 1, b: 2 };
+  Object.seal(obj);
+  obj.c = 3; // This will have no effect
+  console.log(obj.c); // undefined
+  obj.a = 4; // This will change the property
+  console.log(obj.a); // 4
+  ```
+
+- **`Object.isSealed(obj)`**: Returns a Boolean indicating if an object is sealed.
+
+  ```js
+  let obj = { a: 1, b: 2 };
+  console.log(Object.isSealed(obj)); // false
+  Object.seal(obj);
+  console.log(Object.isSealed(obj)); // true
+  ```
+
+### Control Flow
+
+Control flow refers to the order in which statements in a program are executed.
+There are several types of control flow statements that can be used in JavaScript:
+
+E.g. `if-else`, `switch`, and `loops` are used to control the flow of execution in a program.
+
+- **`if` statements**: used to make a decision based on a condition. For example:
+
+  ```js
+  let x = 10;
+  if (x > 5) {
+    console.log("x is greater than 5");
+  }
+  ```
+
+- **`if...else` statements**: used to make a decision based on a condition, with a separate block of code to execute if the condition is false. For example:
+
+  ```js
+  let x = 3;
+  if (x > 5) {
+    console.log("x is greater than 5");
+  } else {
+    console.log("x is less than or equal to 5");
+  }
+  ```
+
+- **`switch` statements**: used to make a decision based on multiple conditions. For example:
+
+  ```js
+  let x = "red";
+  switch (x) {
+    case "red":
+      console.log("x is red");
+      break;
+    case "blue":
+      console.log("x is blue");
+      break;
+    default:
+      console.log("x is neither red nor blue");
+  }
+  ```
+
+- **`while` loops**: used to repeat a block of code while a certain condition is true. For example:
+
+  ```js
+  let x = 0;
+  while (x < 5) {
+    console.log(x);
+    x++;
+  }
+  ```
+
+- **`do...while` loops**: similar to while loops, but the block of code is executed at least once before the condition is checked. For example:
+
+  ```js
+  let x = 0;
+  do {
+    console.log(x);
+    x++;
+  } while (x < 5);
+  ```
+
+- **`for` loops**: used to repeat a block of code a certain number of times. For example:
+
+  ```js
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  ```
+
+- **`for...in` loops**: used to iterate over the properties of an object. For example:
+
+  ```js
+  let obj = { a: 1, b: 2, c: 3, d: 4 };
+  for (let key in obj) {
+    console.log(key + ": " + obj[key]);
+  }
+
+  // a: 1
+  // b: 2
+  // c: 3
+  ```
+
+### Functions
+
+In JavaScript, a function is a block of code that can be reused throughout your program.
+Functions are defined using the `function` keyword and can take one or more arguments.
+Here are some key points about functions in JavaScript:
+
+- **Syntax**: Functions are defined using the `function` keyword, followed by the function name, a list of arguments in parentheses, and a block of code in curly braces.
+
+  ```js
+  function myFunction(arg1, arg2) {
+    // code to be executed
+  }
+  ```
+
+- **Arguments**: Functions can take one or more arguments, which are passed to the function when it is called. The arguments can be of any data type.
+
+  ```js
+  function myFunction(arg1, arg2) {
+    console.log(arg1 + arg2);
+  }
+  myFunction(5, 2); // 7
+  ```
+
+- **Return values**: Functions can return a value using the return keyword. If a function does not have a return statement, it returns undefined by default.
+
+  ```js
+  function myFunction(arg1, arg2) {
+    return arg1 + arg2;
+  }
+  console.log(myFunction(5, 2)); // 7
+  ```
+
+- **Function expressions**: Functions can also be defined as function expressions, which are assigned to a variable. This is also called anonymous function.
+
+  ```js
+  let myFunction = function (arg1, arg2) {
+    return arg1 + arg2;
+  };
+  console.log(myFunction(5, 2)); // 7
+  ```
+
+- **Arrow functions**: ES6 introduced arrow functions which are shorthand notation for function expressions. they are also called lambda function.
+
+  ```js
+  let myFunction = (arg1, arg2) => arg1 + arg2;
+  console.log(myFunction(5, 2)); // 7
+  ```
+
+- **Higher-order functions**: Functions in JavaScript can take other functions as arguments or return functions as values. This is known as Higher-order functions.
+
+  ```js
+  function myFunction(arg1, arg2, callback) {
+    return callback(arg1, arg2);
+  }
+  console.log(myFunction(5, 2, (x, y) => x + y)); // 7
+  ```
+
+- **Default parameters**: In JavaScript, you can assign a default value to a function parameter. This default value will be used if the function is called without passing a value for that parameter.
+
+  ```js
+  function myFunction(arg1, arg2 = 2) {
+    return arg1 + arg2;
+  }
+  console.log(myFunction(5)); // 7
+  ```
+
+### Objects and object-oriented programming
+
+Objects are a fundamental data type in JavaScript and are used to represent real-world entities. They consist of key-value pairs and can have methods, which are functions that are associated with an object. JavaScript is not a fully object-oriented language but has some OOP features like inheritance and encapsulation.
+
+### Classes & Inheritance
+
+### DOM manipulation and event handling
+
+The Document Object Model (DOM) is an interface used to access and manipulate the content of a web page. JavaScript can be used to interact with the DOM, for example, to change the content, style, or layout of a page. Event handling is used to respond to user interactions with a web page, such as clicks, mouseovers, and key presses.
+
+### Asynchronous programming and APIs
+
+JavaScript is a single-threaded language, which means that it can only execute one task at a time. Asynchronous programming allows you to handle multiple tasks at the same time, for example, by using callbacks or Promises. JavaScript can also be used to access data from external sources using Application Programming Interfaces (APIs).
+
+### ES6 features
+
+ECMAScript 6 (ES6) is the latest version of JavaScript, which introduces new features such as arrow functions, template literals, destructuring, and more. These features make the code more concise, readable, and expressive. Some of the other important features are :
+
+### Modules
+
+a way to organize and reuse code
+
+### Promises
+
+a way to handle asynchronous operations
+
+### Browser developer tools
+
+Browser developer tools are built-in tools that allow developers to inspect and debug web pages. These tools can be used to inspect the DOM, view network requests, and debug JavaScript code. They can also be used to test and optimize web pages for performance.
+
+## Best Practices
+
+1. **Keep Learning & Keep Practicing**.
+2. **Share Your Knowledge**.
+3. **Read Documentation**: This may not seem exciting at first, but trust me, it is the most comprehensive and valuable resource you will find for learning in this domain. Just read what you want to implement.
+4. **Stay current**: What you learn today may quickly become obsolete, so it's important to stay informed and adapt with the rapid changes in technology.
+
+## Best Practices for During Programming
+
+1. **Write Readable Code**: Just use comments wherever needed. _Something is better than nothing_.
+2. **Use Code Formatters**: Code formatters will format your code to look good.
+3. **Use Version Control**: Git to track changes to your code, collaborate with others, and revert to previous versions if needed.
+4. **Write DRY Code**: DRY stands for _Don't Repeat Yourself_.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/214037879-f2f4abbb-ab0b-47fb-a818-2d5e0aa1df6f.png" height="225" />
+</p>
+
+<br />
+<p>
+<h6 align="center">
+Remember that learning JavaScript requires practice, and bootcamp is just a start.
+You should keep practicing and experimenting with the language in order to become proficient.
+And if you have any question or need help don't hesitate to ask me.
+</h6>
+</p>
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/50291544/213941920-cbd2316f-77f3-4e40-9c8f-0d7a87684158.gif" width="400px" />
+</p>
+
+<br />
+<p align="center">
+<b>!!! ENJOY PROGRAMMING !!!</b>
+</p>
