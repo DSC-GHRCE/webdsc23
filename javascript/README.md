@@ -14,21 +14,20 @@ Here are some key topics to learning JavaScript:
     4. [String](#strings)
     5. [Arrays](#arrays)
     6. [Objects](#objects)
-    7. [Variable Scope]()
+    7. [Variable Scope](#variable-scope)
 4. [Control Flow](#control-flow)
 5. [Function](#functions)
-    1. [Closures]()
-    2. [Callbacks]()
-6. [Functional Constructors](#functional-constructors)
-7. [Prototypal Inheritance](#prototypal-inheritance)
-8. [Modules](#modules)
-9. [Async JS](#asynchronous-programming-and-apis)
-10. [Promises](#promises)
-11. [ES6 Features](#es6-features)
-12. [Dom Manipulation and Events](#dom-manipulation-and-event-handling)
-13. [Browser Developer Tools](#browser-developer-tools)
-14. [Best Practices](#best-practices)
-15. [More Best Practices](#best-practices-for-during-programming)
+6. [Closures & Callbacks](#closures--callbacks)
+7. [Functional Constructors](#functional-constructors)
+8. [Prototypal Inheritance](#prototypal-inheritance)
+9. [Modules](#modules)
+10. [Async JS](#asynchronous-programming-and-apis)
+11. [Promises](#promises)
+12. [ES6 Features](#es6-features)
+13. [Dom Manipulation and Events](#dom-manipulation-and-event-handling)
+14. [Browser Developer Tools](#browser-developer-tools)
+15. [Best Practices](#best-practices)
+16. [More Best Practices](#best-practices-for-during-programming)
 
 ## Intro to Javascript
 
@@ -543,6 +542,42 @@ Objects have several built-in methods that can be used to manipulate and interac
 <img src="https://user-images.githubusercontent.com/50291544/214042839-c34eac70-2ff8-4867-bc19-d8d657500940.jpg" height="250" />
 </p>
 
+### Variable Scope
+
+In JavaScript, variables have a scope, which determines the accessibility or visibility of those variables within the code. There are two types of scope in JavaScript: global scope and local scope.
+
+1. **Global Scope**: Variables declared outside of any function or block are in the global scope. They can be accessed and modified from any part of the code, and their value is retained throughout the lifetime of the program.
+
+```js
+let globalVariable = "I'm a global variable";
+
+function myFunction() {
+    console.log(globalVariable); // "I'm a global variable"
+}
+
+myFunction();
+```
+
+2. **Local Scope**: Variables declared inside a function or block are in the local scope. They can only be accessed and modified within the function or block where they are declared, and their value is retained only for the duration of the function or block's execution.
+
+```js
+function myFunction() {
+    let localVariable = "I'm a local variable";
+    console.log(localVariable); // "I'm a local variable"
+}
+
+myFunction();
+console.log(localVariable); // ReferenceError: localVariable is not defined
+```
+
+In JavaScript, you can use the var, let, and const keywords to declare variables, each one with different behaviors on the scope:
+
+-   **`var`**: Variables declared with var have function scope. This means that they are accessible within the function where they are declared and its inner functions, but not outside of it.
+
+-   **`let and const`**: Variables declared with let and const have block scope. This means that they are only accessible within the block where they are declared, if declared inside a function, they can't be accessed outside of it.
+
+_It's important to understand how variable scope works, as it can affect the behavior of your code and can lead to unexpected results if not used properly._
+
 ### Control Flow
 
 Control flow refers to the order in which statements in a program are executed.
@@ -696,6 +731,43 @@ Here are some key points about functions in JavaScript:
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50291544/214045534-ea3aad6b-99aa-4316-a568-b21ecf9f0609.png" height="225" />
 </p>
+
+### Closures & Callbacks
+
+In JavaScript, closures and callbacks are two related concepts that are often used together when working with asynchronous code.
+
+-   **Closures**: A closure is a function that has access to the variables in its parent scope, even after the parent function has completed execution. Closures allow you to create functions that have access to specific variables, even when they are invoked outside of their parent scope.
+
+```js
+function myFunction() {
+    let myVar = "I'm a closure";
+
+    return function () {
+        console.log(myVar);
+    };
+}
+
+let myClosure = myFunction();
+myClosure(); // "I'm a closure"
+```
+
+-   **Callbacks**: A callback function is a function that is passed as an argument to another function and is called when the first function has completed its task. Callbacks are widely used in JavaScript, and are the oldest way to handle async code.
+
+```js
+function myFunction(callback) {
+    setTimeout(() => {
+        callback("Hello, world!");
+    }, 1000);
+}
+
+myFunction((response) => {
+    console.log(response); // "Hello, world!"
+});
+```
+
+_Closures and callbacks are often used together because they both allow you to create functions that can be invoked at a later time, and can have access to specific variables. Closures are often used to create callback functions that have access to specific variables, even when they are invoked outside of their parent scope._
+
+_As a best practice, it's good to keep your code organized and readable by using closures and callbacks in a proper way, and avoid callbacks hell, which can make your code difficult to understand and maintain._
 
 ### Functional Constructors
 
