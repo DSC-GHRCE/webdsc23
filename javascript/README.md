@@ -3,18 +3,18 @@
 Here are some key topics to learning JavaScript:
 
 1. [Javascript](#intro-to-javascript)
-    1. [What is JS](#what-is-javascript)
-    2. [History of JS](#history-of-javascript)
-    3. [Use cases of JS](#use-cases-for-javascript)
+   1. [What is JS](#what-is-javascript)
+   2. [History of JS](#history-of-javascript)
+   3. [Use cases of JS](#use-cases-for-javascript)
 2. [The common confusion](#javascript-vs-java)
 3. [Basics](#basics-of-javascript)
-    1. [Datatypes](#datatypes)
-    2. [Operators](#operators)
-    3. [Variables](#variables)
-    4. [String](#strings)
-    5. [Arrays](#arrays)
-    6. [Objects](#objects)
-    7. [Variable Scope](#variable-scope)
+   1. [Datatypes](#datatypes)
+   2. [Operators](#operators)
+   3. [Variables](#variables)
+   4. [String](#strings)
+   5. [Arrays](#arrays)
+   6. [Objects](#objects)
+   7. [Variable Scope](#variable-scope)
 4. [Control Flow](#control-flow)
 5. [Function](#functions)
 6. [Closures & Callbacks](#closures--callbacks)
@@ -148,81 +148,81 @@ typeof undefined; // "undefined"
 Operators are used to perform operations on variables and data types.
 JavaScript has various types of operators like arithmetic, comparison, and logical operators.
 
--   **Arithmetic operators**: used to perform mathematical operations, such as addition `(+)`, subtraction `(-)`, multiplication `(\*)`, division `(/)`, modulus `(%)`, and exponentiation `(**)`. For example:
+- **Arithmetic operators**: used to perform mathematical operations, such as addition `(+)`, subtraction `(-)`, multiplication `(\*)`, division `(/)`, modulus `(%)`, and exponentiation `(**)`. For example:
 
-    ```js
-    let x = 5;
-    let y = 2;
-    console.log(x + y); // 7
-    console.log(x - y); // 3
-    console.log(x * y); // 10
-    console.log(x / y); // 2.5
-    console.log(x % y); // 1
-    console.log(x ** y); // 25
-    ```
+  ```js
+  let x = 5;
+  let y = 2;
+  console.log(x + y); // 7
+  console.log(x - y); // 3
+  console.log(x * y); // 10
+  console.log(x / y); // 2.5
+  console.log(x % y); // 1
+  console.log(x ** y); // 25
+  ```
 
--   **Comparison operators**: used to compare values, such as equality `(==)`, inequality `(!=)`, greater than `(>)`, less than `(<)`, greater than or equal to `(>=)`, and less than or equal to `(<=)`. For example:
+- **Comparison operators**: used to compare values, such as equality `(==)`, inequality `(!=)`, greater than `(>)`, less than `(<)`, greater than or equal to `(>=)`, and less than or equal to `(<=)`. For example:
 
-    ```js
-    let x = 5;
-    let y = 2;
-    console.log(x == y); // false
-    console.log(x != y); // true
-    console.log(x > y); // true
-    console.log(x < y); // false
-    console.log(x >= y); // true
-    console.log(x <= y); // false
-    ```
+  ```js
+  let x = 5;
+  let y = 2;
+  console.log(x == y); // false
+  console.log(x != y); // true
+  console.log(x > y); // true
+  console.log(x < y); // false
+  console.log(x >= y); // true
+  console.log(x <= y); // false
+  ```
 
--   **Logical operators**: used to perform logical operations, such as and `(&&)`, or `(||)`, and not `(!)`. For example:
+- **Logical operators**: used to perform logical operations, such as and `(&&)`, or `(||)`, and not `(!)`. For example:
 
-    ```js
-    let x = true;
-    let y = false;
-    console.log(x && y); // false
-    console.log(x || y); // true
-    console.log(!x); // false
-    ```
+  ```js
+  let x = true;
+  let y = false;
+  console.log(x && y); // false
+  console.log(x || y); // true
+  console.log(!x); // false
+  ```
 
--   **Assignment operators**: used to assign values to variables, such as the basic assignment operator `(=)`, as well as compound assignment operators `(+=, -=, *=, /=, %=, **=)`. For example:
+- **Assignment operators**: used to assign values to variables, such as the basic assignment operator `(=)`, as well as compound assignment operators `(+=, -=, *=, /=, %=, **=)`. For example:
 
-    ```js
-    let x = 5;
-    x = x + 2;
-    console.log(x); // 7
+  ```js
+  let x = 5;
+  x = x + 2;
+  console.log(x); // 7
 
-    let y = 5;
-    y += 2;
-    console.log(y); // 7
-    ```
+  let y = 5;
+  y += 2;
+  console.log(y); // 7
+  ```
 
--   **Conditional (ternary) operator**: used to perform a ternary operation, a shorthand for an if-else statement. The syntax is: `condition ? statement1 : statement2`. For example:
+- **Conditional (ternary) operator**: used to perform a ternary operation, a shorthand for an if-else statement. The syntax is: `condition ? statement1 : statement2`. For example:
 
-    ```js
-    let x = 5;
-    let y = 2;
-    let min = x < y ? x : y;
-    console.log(min); // 2
-    ```
+  ```js
+  let x = 5;
+  let y = 2;
+  let min = x < y ? x : y;
+  console.log(min); // 2
+  ```
 
--   **Unary operators**: which operate on only one operand, like `typeof`, `delete`, `void`, and others. For example:
+- **Unary operators**: which operate on only one operand, like `typeof`, `delete`, `void`, and others. For example:
 
-    ```js
-    let x = "hello";
-    console.log(typeof x); // string
+  ```js
+  let x = "hello";
+  console.log(typeof x); // string
 
-    let y = { a: 1 };
-    delete y.a;
-    console.log(y); // {}
-    ```
+  let y = { a: 1 };
+  delete y.a;
+  console.log(y); // {}
+  ```
 
--   **Spread operator**: It allows the elements of an iterable to be expanded in places where zero or more arguments for function calls or elements for array literals are expected.
+- **Spread operator**: It allows the elements of an iterable to be expanded in places where zero or more arguments for function calls or elements for array literals are expected.
 
-    ```js
-    let arr = [1, 2, 3];
-    console.log(...arr); // 1 2 3
-    console.log(Math.max(...arr)); // 3
-    ```
+  ```js
+  let arr = [1, 2, 3];
+  console.log(...arr); // 1 2 3
+  console.log(Math.max(...arr)); // 3
+  ```
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50291544/214043116-3b94baf0-3cc1-4cc1-9994-2ab588893ba1.png" height="400" />
@@ -232,9 +232,9 @@ JavaScript has various types of operators like arithmetic, comparison, and logic
 
 In JavaScript, variables are used to store data. They are used to store different types of values such as numbers, strings, arrays, and objects. Variables can be declared using the keyword "var", "let" or "const".
 
--   The `var` keyword is used to declare a variable in JavaScript. Variables declared with "var" are function scoped, which means they are only accessible within the function where they are declared.
--   The `let` keyword is similar to "var", but variables declared with "let" are block-scoped. This means they are only accessible within the block of code where they are declared.
--   The `const` keyword is used to declare a variable which cannot be reassigned.
+- The `var` keyword is used to declare a variable in JavaScript. Variables declared with "var" are function scoped, which means they are only accessible within the function where they are declared.
+- The `let` keyword is similar to "var", but variables declared with "let" are block-scoped. This means they are only accessible within the block of code where they are declared.
+- The `const` keyword is used to declare a variable which cannot be reassigned.
 
 ```js
 var a = "hello";
@@ -278,12 +278,12 @@ let str2 = "Hey!";
 
 JavaScript provides several built-in methods for working with strings, such as:
 
--   **length**: returns the number of characters in a string
--   **indexOf(substr)**: returns the index of the first occurrence of a substring within a string
--   **substring(start, end)**: returns a portion of a string
--   **toUpperCase() / toLowerCase()**: returns the string in all uppercase or lowercase letters
--   **split(delimiter)**: splits a string into an array of substrings based on a delimiter
--   **replace(oldValue, newValue)**: replaces all occurrences of a string with another string
+- **length**: returns the number of characters in a string
+- **indexOf(substr)**: returns the index of the first occurrence of a substring within a string
+- **substring(start, end)**: returns a portion of a string
+- **toUpperCase() / toLowerCase()**: returns the string in all uppercase or lowercase letters
+- **split(delimiter)**: splits a string into an array of substrings based on a delimiter
+- **replace(oldValue, newValue)**: replaces all occurrences of a string with another string
 
 ```js
 let str = "Hello World!";
@@ -349,18 +349,18 @@ console.log(arr); // [1, 2, 3, 4, 5]
 
 JavaScript provides several built-in methods for working with arrays, such as:
 
--   **push(element)**: adds one or more elements to the end of an array
--   **pop()**: removes the last element of an array
--   **shift()**: removes the first element of an array
--   **unshift(element)**: adds one or more elements to the beginning of an array
--   **slice(start, end)**: returns a new array with a selected range of elements
--   **splice(start, deleteCount, item1, item2, ...)**: removes and/or adds new elements to an array
--   **reverse()**: reverses the order of elements in an array
--   **sort()**: sorts the elements of an array in alphabetical or numerical order
--   **forEach(function)**: calls a function for each element in an array
--   **map(function)**: creates a new array by calling a function for each element in an array
--   **filter(function)**: creates a new array with all elements that pass a test
--   **reduce(function)**: applies a function to each element in an array, and returns a single value
+- **push(element)**: adds one or more elements to the end of an array
+- **pop()**: removes the last element of an array
+- **shift()**: removes the first element of an array
+- **unshift(element)**: adds one or more elements to the beginning of an array
+- **slice(start, end)**: returns a new array with a selected range of elements
+- **splice(start, deleteCount, item1, item2, ...)**: removes and/or adds new elements to an array
+- **reverse()**: reverses the order of elements in an array
+- **sort()**: sorts the elements of an array in alphabetical or numerical order
+- **forEach(function)**: calls a function for each element in an array
+- **map(function)**: creates a new array by calling a function for each element in an array
+- **filter(function)**: creates a new array with all elements that pass a test
+- **reduce(function)**: applies a function to each element in an array, and returns a single value
 
 ```js
 let arr = [1, 2, 3];
@@ -397,25 +397,25 @@ console.log(arr); // [1, 2, 3]
 
 let arr = [1, 2, 3];
 arr.forEach(function (element) {
-    console.log(element);
+  console.log(element);
 });
 // Output: 1, 2, 3
 
 let arr = [1, 2, 3];
 let newArr = arr.map(function (element) {
-    return element * 2;
+  return element * 2;
 });
 console.log(newArr); // [2, 4, 6]
 
 let arr = [1, 2, 3, 4, 5];
 let newArr = arr.filter(function (element) {
-    return element % 2 === 0;
+  return element % 2 === 0;
 });
 console.log(newArr); // [2, 4]
 
 let arr = [1, 2, 3, 4];
 let sum = arr.reduce(function (accumulator, currentValue) {
-    return accumulator + currentValue;
+  return accumulator + currentValue;
 });
 console.log(sum); // 10
 ```
@@ -428,33 +428,33 @@ including another object.
 
 There are several ways to create objects in JavaScript:
 
--   **Object literals**: Objects can be created using curly braces {} and key-value pairs separated by a colon. For example:
+- **Object literals**: Objects can be created using curly braces {} and key-value pairs separated by a colon. For example:
 
-    ```js
-    let obj = {
-        key1: "value1",
-        key2: "value2",
-        key3: "value3",
-    };
-    ```
+  ```js
+  let obj = {
+    key1: "value1",
+    key2: "value2",
+    key3: "value3",
+  };
+  ```
 
--   **Object constructor**: Objects can be created using the built-in Object constructor. For example:
+- **Object constructor**: Objects can be created using the built-in Object constructor. For example:
 
-    ```js
-    let obj = new Object();
-    obj.key1 = "value1";
-    obj.key2 = "value2";
-    obj.key3 = "value3";
-    ```
+  ```js
+  let obj = new Object();
+  obj.key1 = "value1";
+  obj.key2 = "value2";
+  obj.key3 = "value3";
+  ```
 
--   **`Object.create()`**: Objects can be created using the Object.create() method. For example:
+- **`Object.create()`**: Objects can be created using the Object.create() method. For example:
 
-    ```js
-    let obj = Object.create(null);
-    obj.key1 = "value1";
-    obj.key2 = "value2";
-    obj.key3 = "value3";
-    ```
+  ```js
+  let obj = Object.create(null);
+  obj.key1 = "value1";
+  obj.key2 = "value2";
+  obj.key3 = "value3";
+  ```
 
 You can access the properties of an object using dot notation or bracket notation. For example:
 
@@ -475,68 +475,68 @@ JavaScript objects are also commonly used to store functions, which are known as
 
 ```js
 let obj = {
-    x: 5,
-    y: 2,
-    add: function () {
-        return this.x + this.y;
-    },
+  x: 5,
+  y: 2,
+  add: function () {
+    return this.x + this.y;
+  },
 };
 console.log(obj.add()); // 7
 ```
 
 Objects have several built-in methods that can be used to manipulate and interact with their properties. Here are a few examples:
 
--   **`Object.keys(obj)`**: Returns an array of the object's own enumerable property names.
+- **`Object.keys(obj)`**: Returns an array of the object's own enumerable property names.
 
-    ```js
-    let obj = { a: 1, b: 2, c: 3 };
-    console.log(Object.keys(obj)); // ["a", "b", "c"]
-    ```
+  ```js
+  let obj = { a: 1, b: 2, c: 3 };
+  console.log(Object.keys(obj)); // ["a", "b", "c"]
+  ```
 
--   **`Object.values(obj)`**: Returns an array of the object's own enumerable property values.
+- **`Object.values(obj)`**: Returns an array of the object's own enumerable property values.
 
-    ```js
-    let obj = { a: 1, b: 2, c: 3 };
-    console.log(Object.values(obj)); // [1, 2, 3]
-    ```
+  ```js
+  let obj = { a: 1, b: 2, c: 3 };
+  console.log(Object.values(obj)); // [1, 2, 3]
+  ```
 
--   **`Object.freeze(obj)`**: Freezes an object, making it immutable so that other code can't delete or change any properties.
+- **`Object.freeze(obj)`**: Freezes an object, making it immutable so that other code can't delete or change any properties.
 
-    ```js
-    let obj = { a: 1, b: 2 };
-    Object.freeze(obj);
-    obj.a = 3; // This will have no effect
-    console.log(obj.a); // 1
-    ```
+  ```js
+  let obj = { a: 1, b: 2 };
+  Object.freeze(obj);
+  obj.a = 3; // This will have no effect
+  console.log(obj.a); // 1
+  ```
 
--   **`Object.isFrozen(obj)`**: Returns a Boolean indicating if an object is frozen.
+- **`Object.isFrozen(obj)`**: Returns a Boolean indicating if an object is frozen.
 
-    ```js
-    let obj = { a: 1, b: 2 };
-    console.log(Object.isFrozen(obj)); // false
-    Object.freeze(obj);
-    console.log(Object.isFrozen(obj)); // true
-    ```
+  ```js
+  let obj = { a: 1, b: 2 };
+  console.log(Object.isFrozen(obj)); // false
+  Object.freeze(obj);
+  console.log(Object.isFrozen(obj)); // true
+  ```
 
--   **`Object.seal(obj)`**: Seals an object, making it non-extensible so that new properties can't be added, but existing properties can still be modified.
+- **`Object.seal(obj)`**: Seals an object, making it non-extensible so that new properties can't be added, but existing properties can still be modified.
 
-    ```js
-    let obj = { a: 1, b: 2 };
-    Object.seal(obj);
-    obj.c = 3; // This will have no effect
-    console.log(obj.c); // undefined
-    obj.a = 4; // This will change the property
-    console.log(obj.a); // 4
-    ```
+  ```js
+  let obj = { a: 1, b: 2 };
+  Object.seal(obj);
+  obj.c = 3; // This will have no effect
+  console.log(obj.c); // undefined
+  obj.a = 4; // This will change the property
+  console.log(obj.a); // 4
+  ```
 
--   **`Object.isSealed(obj)`**: Returns a Boolean indicating if an object is sealed.
+- **`Object.isSealed(obj)`**: Returns a Boolean indicating if an object is sealed.
 
-    ```js
-    let obj = { a: 1, b: 2 };
-    console.log(Object.isSealed(obj)); // false
-    Object.seal(obj);
-    console.log(Object.isSealed(obj)); // true
-    ```
+  ```js
+  let obj = { a: 1, b: 2 };
+  console.log(Object.isSealed(obj)); // false
+  Object.seal(obj);
+  console.log(Object.isSealed(obj)); // true
+  ```
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50291544/214042839-c34eac70-2ff8-4867-bc19-d8d657500940.jpg" height="250" />
@@ -552,7 +552,7 @@ In JavaScript, variables have a scope, which determines the accessibility or vis
 let globalVariable = "I'm a global variable";
 
 function myFunction() {
-    console.log(globalVariable); // "I'm a global variable"
+  console.log(globalVariable); // "I'm a global variable"
 }
 
 myFunction();
@@ -562,8 +562,8 @@ myFunction();
 
 ```js
 function myFunction() {
-    let localVariable = "I'm a local variable";
-    console.log(localVariable); // "I'm a local variable"
+  let localVariable = "I'm a local variable";
+  console.log(localVariable); // "I'm a local variable"
 }
 
 myFunction();
@@ -572,9 +572,9 @@ console.log(localVariable); // ReferenceError: localVariable is not defined
 
 In JavaScript, you can use the var, let, and const keywords to declare variables, each one with different behaviors on the scope:
 
--   **`var`**: Variables declared with var have function scope. This means that they are accessible within the function where they are declared and its inner functions, but not outside of it.
+- **`var`**: Variables declared with var have function scope. This means that they are accessible within the function where they are declared and its inner functions, but not outside of it.
 
--   **`let and const`**: Variables declared with let and const have block scope. This means that they are only accessible within the block where they are declared, if declared inside a function, they can't be accessed outside of it.
+- **`let and const`**: Variables declared with let and const have block scope. This means that they are only accessible within the block where they are declared, if declared inside a function, they can't be accessed outside of it.
 
 _It's important to understand how variable scope works, as it can affect the behavior of your code and can lead to unexpected results if not used properly._
 
@@ -585,82 +585,82 @@ There are several types of control flow statements that can be used in JavaScrip
 
 E.g. `if-else`, `switch`, and `loops` are used to control the flow of execution in a program.
 
--   **`if` statements**: used to make a decision based on a condition. For example:
+- **`if` statements**: used to make a decision based on a condition. For example:
 
-    ```js
-    let x = 10;
-    if (x > 5) {
-        console.log("x is greater than 5");
-    }
-    ```
+  ```js
+  let x = 10;
+  if (x > 5) {
+    console.log("x is greater than 5");
+  }
+  ```
 
--   **`if...else` statements**: used to make a decision based on a condition, with a separate block of code to execute if the condition is false. For example:
+- **`if...else` statements**: used to make a decision based on a condition, with a separate block of code to execute if the condition is false. For example:
 
-    ```js
-    let x = 3;
-    if (x > 5) {
-        console.log("x is greater than 5");
-    } else {
-        console.log("x is less than or equal to 5");
-    }
-    ```
+  ```js
+  let x = 3;
+  if (x > 5) {
+    console.log("x is greater than 5");
+  } else {
+    console.log("x is less than or equal to 5");
+  }
+  ```
 
--   **`switch` statements**: used to make a decision based on multiple conditions. For example:
+- **`switch` statements**: used to make a decision based on multiple conditions. For example:
 
-    ```js
-    let x = "red";
-    switch (x) {
-        case "red":
-            console.log("x is red");
-            break;
-        case "blue":
-            console.log("x is blue");
-            break;
-        default:
-            console.log("x is neither red nor blue");
-    }
-    ```
+  ```js
+  let x = "red";
+  switch (x) {
+    case "red":
+      console.log("x is red");
+      break;
+    case "blue":
+      console.log("x is blue");
+      break;
+    default:
+      console.log("x is neither red nor blue");
+  }
+  ```
 
--   **`while` loops**: used to repeat a block of code while a certain condition is true. For example:
+- **`while` loops**: used to repeat a block of code while a certain condition is true. For example:
 
-    ```js
-    let x = 0;
-    while (x < 5) {
-        console.log(x);
-        x++;
-    }
-    ```
+  ```js
+  let x = 0;
+  while (x < 5) {
+    console.log(x);
+    x++;
+  }
+  ```
 
--   **`do...while` loops**: similar to while loops, but the block of code is executed at least once before the condition is checked. For example:
+- **`do...while` loops**: similar to while loops, but the block of code is executed at least once before the condition is checked. For example:
 
-    ```js
-    let x = 0;
-    do {
-        console.log(x);
-        x++;
-    } while (x < 5);
-    ```
+  ```js
+  let x = 0;
+  do {
+    console.log(x);
+    x++;
+  } while (x < 5);
+  ```
 
--   **`for` loops**: used to repeat a block of code a certain number of times. For example:
+- **`for` loops**: used to repeat a block of code a certain number of times. For example:
 
-    ```js
-    for (let i = 0; i < 5; i++) {
-        console.log(i);
-    }
-    ```
+  ```js
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+  }
+  ```
 
--   **`for...in` loops**: used to iterate over the properties of an object. For example:
+- **`for...in` loops**: used to iterate over the properties of an object. For example:
 
-    ```js
-    let obj = { a: 1, b: 2, c: 3, d: 4 };
-    for (let key in obj) {
-        console.log(key + ": " + obj[key]);
-    }
+  ```js
+  let obj = { a: 1, b: 2, c: 3, d: 4 };
+  for (let key in obj) {
+    console.log(key + ": " + obj[key]);
+  }
 
-    // a: 1
-    // b: 2
-    // c: 3
-    ```
+  // a: 1
+  // b: 2
+  // c: 3
+  ```
 
 ### Functions
 
@@ -668,65 +668,65 @@ In JavaScript, a function is a block of code that can be reused throughout your 
 Functions are defined using the `function` keyword and can take one or more arguments.
 Here are some key points about functions in JavaScript:
 
--   **Syntax**: Functions are defined using the `function` keyword, followed by the function name, a list of arguments in parentheses, and a block of code in curly braces.
+- **Syntax**: Functions are defined using the `function` keyword, followed by the function name, a list of arguments in parentheses, and a block of code in curly braces.
 
-    ```js
-    function myFunction(arg1, arg2) {
-        // code to be executed
-    }
-    ```
+  ```js
+  function myFunction(arg1, arg2) {
+    // code to be executed
+  }
+  ```
 
--   **Arguments**: Functions can take one or more arguments, which are passed to the function when it is called. The arguments can be of any data type.
+- **Arguments**: Functions can take one or more arguments, which are passed to the function when it is called. The arguments can be of any data type.
 
-    ```js
-    function myFunction(arg1, arg2) {
-        console.log(arg1 + arg2);
-    }
-    myFunction(5, 2); // 7
-    ```
+  ```js
+  function myFunction(arg1, arg2) {
+    console.log(arg1 + arg2);
+  }
+  myFunction(5, 2); // 7
+  ```
 
--   **Return values**: Functions can return a value using the return keyword. If a function does not have a return statement, it returns undefined by default.
+- **Return values**: Functions can return a value using the return keyword. If a function does not have a return statement, it returns undefined by default.
 
-    ```js
-    function myFunction(arg1, arg2) {
-        return arg1 + arg2;
-    }
-    console.log(myFunction(5, 2)); // 7
-    ```
+  ```js
+  function myFunction(arg1, arg2) {
+    return arg1 + arg2;
+  }
+  console.log(myFunction(5, 2)); // 7
+  ```
 
--   **Function expressions**: Functions can also be defined as function expressions, which are assigned to a variable. This is also called anonymous function.
+- **Function expressions**: Functions can also be defined as function expressions, which are assigned to a variable. This is also called anonymous function.
 
-    ```js
-    let myFunction = function (arg1, arg2) {
-        return arg1 + arg2;
-    };
-    console.log(myFunction(5, 2)); // 7
-    ```
+  ```js
+  let myFunction = function (arg1, arg2) {
+    return arg1 + arg2;
+  };
+  console.log(myFunction(5, 2)); // 7
+  ```
 
--   **Arrow functions**: ES6 introduced arrow functions which are shorthand notation for function expressions. they are also called lambda function.
+- **Arrow functions**: ES6 introduced arrow functions which are shorthand notation for function expressions. they are also called lambda function.
 
-    ```js
-    let myFunction = (arg1, arg2) => arg1 + arg2;
-    console.log(myFunction(5, 2)); // 7
-    ```
+  ```js
+  let myFunction = (arg1, arg2) => arg1 + arg2;
+  console.log(myFunction(5, 2)); // 7
+  ```
 
--   **Higher-order functions**: Functions in JavaScript can take other functions as arguments or return functions as values. This is known as Higher-order functions.
+- **Higher-order functions**: Functions in JavaScript can take other functions as arguments or return functions as values. This is known as Higher-order functions.
 
-    ```js
-    function myFunction(arg1, arg2, callback) {
-        return callback(arg1, arg2);
-    }
-    console.log(myFunction(5, 2, (x, y) => x + y)); // 7
-    ```
+  ```js
+  function myFunction(arg1, arg2, callback) {
+    return callback(arg1, arg2);
+  }
+  console.log(myFunction(5, 2, (x, y) => x + y)); // 7
+  ```
 
--   **Default parameters**: In JavaScript, you can assign a default value to a function parameter. This default value will be used if the function is called without passing a value for that parameter.
+- **Default parameters**: In JavaScript, you can assign a default value to a function parameter. This default value will be used if the function is called without passing a value for that parameter.
 
-    ```js
-    function myFunction(arg1, arg2 = 2) {
-        return arg1 + arg2;
-    }
-    console.log(myFunction(5)); // 7
-    ```
+  ```js
+  function myFunction(arg1, arg2 = 2) {
+    return arg1 + arg2;
+  }
+  console.log(myFunction(5)); // 7
+  ```
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50291544/214045534-ea3aad6b-99aa-4316-a568-b21ecf9f0609.png" height="225" />
@@ -736,32 +736,32 @@ Here are some key points about functions in JavaScript:
 
 In JavaScript, closures and callbacks are two related concepts that are often used together when working with asynchronous code.
 
--   **Closures**: A closure is a function that has access to the variables in its parent scope, even after the parent function has completed execution. Closures allow you to create functions that have access to specific variables, even when they are invoked outside of their parent scope.
+- **Closures**: A closure is a function that has access to the variables in its parent scope, even after the parent function has completed execution. Closures allow you to create functions that have access to specific variables, even when they are invoked outside of their parent scope.
 
 ```js
 function myFunction() {
-    let myVar = "I'm a closure";
+  let myVar = "I'm a closure";
 
-    return function () {
-        console.log(myVar);
-    };
+  return function () {
+    console.log(myVar);
+  };
 }
 
 let myClosure = myFunction();
 myClosure(); // "I'm a closure"
 ```
 
--   **Callbacks**: A callback function is a function that is passed as an argument to another function and is called when the first function has completed its task. Callbacks are widely used in JavaScript, and are the oldest way to handle async code.
+- **Callbacks**: A callback function is a function that is passed as an argument to another function and is called when the first function has completed its task. Callbacks are widely used in JavaScript, and are the oldest way to handle async code.
 
 ```js
 function myFunction(callback) {
-    setTimeout(() => {
-        callback("Hello, world!");
-    }, 1000);
+  setTimeout(() => {
+    callback("Hello, world!");
+  }, 1000);
 }
 
 myFunction((response) => {
-    console.log(response); // "Hello, world!"
+  console.log(response); // "Hello, world!"
 });
 ```
 
@@ -778,10 +778,10 @@ Here is an example of a simple function constructor:
 
 ```js
 function Person(name) {
-    this.name = name;
-    this.greet = function () {
-        console.log("Hello, my name is " + this.name + ".");
-    };
+  this.name = name;
+  this.greet = function () {
+    console.log("Hello, my name is " + this.name + ".");
+  };
 }
 
 let person = new Person("Vidhanshu");
@@ -816,11 +816,11 @@ Here is an example of how prototypal inheritance works in JavaScript:
 
 ```js
 let animal = {
-    eats: true,
+  eats: true,
 };
 
 let rabbit = {
-    jumps: true,
+  jumps: true,
 };
 
 // __proto__ is a special property found in each and every object in JS
@@ -842,35 +842,35 @@ This allows you to split your code into smaller, more manageable pieces, and to 
 
 JavaScript has two main ways of working with modules:
 
--   **CommonJS**: CommonJS is a module system used in Node.js to handle dependencies. In CommonJS, modules are defined using the exports object. To import a module, you use the require() function.
+- **CommonJS**: CommonJS is a module system used in Node.js to handle dependencies. In CommonJS, modules are defined using the exports object. To import a module, you use the require() function.
 
-    ```js
-    // myModule.js
-    exports.myValue = 5;
-    exports.myFunction = function () {
-        console.log("Hello, world!");
-    };
+  ```js
+  // myModule.js
+  exports.myValue = 5;
+  exports.myFunction = function () {
+    console.log("Hello, world!");
+  };
 
-    // main.js
-    const myModule = require("./myModule.js");
-    console.log(myModule.myValue); // 5
-    myModule.myFunction(); // "Hello, world!"
-    ```
+  // main.js
+  const myModule = require("./myModule.js");
+  console.log(myModule.myValue); // 5
+  myModule.myFunction(); // "Hello, world!"
+  ```
 
--   **ES6 Modules**: ES6 modules is a new way to handle modules in JavaScript, and is supported in modern browsers. In ES6, modules are defined using the export keyword, and imported using the import keyword.
+- **ES6 Modules**: ES6 modules is a new way to handle modules in JavaScript, and is supported in modern browsers. In ES6, modules are defined using the export keyword, and imported using the import keyword.
 
-    ```js
-    // myModule.js
-    export const myValue = 5;
-    export function myFunction() {
-        console.log("Hello, world!");
-    }
+  ```js
+  // myModule.js
+  export const myValue = 5;
+  export function myFunction() {
+    console.log("Hello, world!");
+  }
 
-    // main.js
-    import { myValue, myFunction } from "./myModule.js";
-    console.log(myValue); // 5
-    myFunction(); // "Hello, world!"
-    ```
+  // main.js
+  import { myValue, myFunction } from "./myModule.js";
+  console.log(myValue); // 5
+  myFunction(); // "Hello, world!"
+  ```
 
 With both of these systems, you can export and import variables, functions, classes and other types of data.
 Also, you can use `export default `to export a single value by default,
@@ -887,48 +887,48 @@ This is particularly useful when working with tasks that take a long time to com
 
 JavaScript has several ways to handle asynchronous code, including:
 
--   **Callbacks**: A callback function is a function that is passed as an argument to another function and is called when the first function has completed its task. Callbacks are widely used in JavaScript, and are the oldest way to handle async code.
+- **Callbacks**: A callback function is a function that is passed as an argument to another function and is called when the first function has completed its task. Callbacks are widely used in JavaScript, and are the oldest way to handle async code.
 
-    ```js
-    function myFunction(callback) {
-        setTimeout(() => {
-            callback("Hello, world!");
-        }, 1000);
-    }
+  ```js
+  function myFunction(callback) {
+    setTimeout(() => {
+      callback("Hello, world!");
+    }, 1000);
+  }
 
-    myFunction((response) => {
-        console.log(response); // "Hello, world!"
+  myFunction((response) => {
+    console.log(response); // "Hello, world!"
+  });
+  ```
+
+- **Promises**: Promises are objects that represent the eventual completion (or failure) of an asynchronous operation, and its resulting value. Promises provide a way to handle async code in a more elegant and easy to reason about way, by allowing you to attach callbacks to the promise that will be called when the promise is resolved or rejected.
+
+  ```js
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Hello, world!");
+    }, 1000);
+  });
+
+  promise.then((response) => {
+    console.log(response); // "Hello, world!"
+  });
+  ```
+
+- **Async/await**: Async/await is a more recent addition to JavaScript, and provides a way to write async code using a more synchronous-looking syntax. Async/await is built on top of promises and makes it easier to reason about async code.
+
+  ```js
+  async function myFunction() {
+    let response = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Hello, world!");
+      }, 1000);
     });
-    ```
+    console.log(response); // "Hello, world!"
+  }
 
--   **Promises**: Promises are objects that represent the eventual completion (or failure) of an asynchronous operation, and its resulting value. Promises provide a way to handle async code in a more elegant and easy to reason about way, by allowing you to attach callbacks to the promise that will be called when the promise is resolved or rejected.
-
-    ```js
-    let promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Hello, world!");
-        }, 1000);
-    });
-
-    promise.then((response) => {
-        console.log(response); // "Hello, world!"
-    });
-    ```
-
--   **Async/await**: Async/await is a more recent addition to JavaScript, and provides a way to write async code using a more synchronous-looking syntax. Async/await is built on top of promises and makes it easier to reason about async code.
-
-    ```js
-    async function myFunction() {
-        let response = await new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve("Hello, world!");
-            }, 1000);
-        });
-        console.log(response); // "Hello, world!"
-    }
-
-    myFunction();
-    ```
+  myFunction();
+  ```
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50291544/214175741-d6e43b00-9a09-40fd-be6e-2799799b93a3.png" height="270" />
@@ -942,13 +942,13 @@ Here is an example of a simple promise:
 
 ```js
 let promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("Hello, world!");
-    }, 1000);
+  setTimeout(() => {
+    resolve("Hello, world!");
+  }, 1000);
 });
 
 promise.then((response) => {
-    console.log(response); // "Hello, world!"
+  console.log(response); // "Hello, world!"
 });
 ```
 
@@ -965,18 +965,18 @@ You can also attach callbacks for when the promise is rejected using the `.catch
 
 ```js
 let promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        reject(new Error("Something went wrong!"));
-    }, 1000);
+  setTimeout(() => {
+    reject(new Error("Something went wrong!"));
+  }, 1000);
 });
 
 promise
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.log(error); // "Error: Something went wrong!"
-    });
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error); // "Error: Something went wrong!"
+  });
 ```
 
 Promises also allows to chain multiple promises together using `.then()` method,
@@ -1007,85 +1007,85 @@ console.log(y);
 
 2. **Template literals**
 
-    ```js
-    let name = "John";
-    console.log(`Hello, ${name}!`); // "Hello, John!"
-    ```
+   ```js
+   let name = "John";
+   console.log(`Hello, ${name}!`); // "Hello, John!"
+   ```
 
 3. **Arrow functions**
 
-    ```js
-    let myFunction = (x, y) => x + y;
-    console.log(myFunction(5, 2)); // 7
-    ```
+   ```js
+   let myFunction = (x, y) => x + y;
+   console.log(myFunction(5, 2)); // 7
+   ```
 
 4. **Destructuring assignment**
 
-    ```js
-    let myArray = [1, 2, 3];
-    let [a, b, c] = myArray;
-    console.log(a); // 1
-    console.log(c); // 3
-    console.log(b); // 2
-    ```
+   ```js
+   let myArray = [1, 2, 3];
+   let [a, b, c] = myArray;
+   console.log(a); // 1
+   console.log(c); // 3
+   console.log(b); // 2
+   ```
 
 5. **Classes**
 
-    ```js
-    class Person {
-        constructor(name) {
-            this.name = name;
-        }
-        greet() {
-            console.log(`Hello, my name is ${this.name}.`);
-        }
-    }
-    let john = new Person("John");
-    john.greet(); // "Hello, my name is John."
-    ```
+   ```js
+   class Person {
+     constructor(name) {
+       this.name = name;
+     }
+     greet() {
+       console.log(`Hello, my name is ${this.name}.`);
+     }
+   }
+   let john = new Person("John");
+   john.greet(); // "Hello, my name is John."
+   ```
 
 6. **Modules**
 
-    ```js
-    // myModule.js
-    export const myValue = 5;
-    export function myFunction() {
-        console.log("Hello, world!");
-    }
+   ```js
+   // myModule.js
+   export const myValue = 5;
+   export function myFunction() {
+     console.log("Hello, world!");
+   }
 
-    // main.js
-    import { myValue, myFunction } from "./myModule.js";
-    console.log(myValue); // 5
-    myFunction(); // "Hello, world!"
-    ```
+   // main.js
+   import { myValue, myFunction } from "./myModule.js";
+   console.log(myValue); // 5
+   myFunction(); // "Hello, world!"
+   ```
 
 7. **Promises**
 
-    ```js
-    function getData() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve({ data: "Hello, world!" });
-            }, 1000);
-        });
-    }
-    getData().then((response) => console.log(response.data)); // "Hello, world!"
-    ```
+   ```js
+   function getData() {
+     return new Promise((resolve, reject) => {
+       setTimeout(() => {
+         resolve({ data: "Hello, world!" });
+       }, 1000);
+     });
+   }
+   getData().then((response) => console.log(response.data)); // "Hello, world!"
+   ```
 
 8. **Spread operator and rest parameters**
 
-    ```js
-    let myArray = [1, 2, 3];
-    let myOtherArray = [4, 5, ...myArray];
-    console.log(myOtherArray); // [4, 5, 1, 2, 3]
+   ```js
+   let myArray = [1, 2, 3];
+   let myOtherArray = [4, 5, ...myArray];
+   console.log(myOtherArray); // [4, 5, 1, 2, 3]
 
-    function myFunction(x, y, ...args) {
-        console.log(x); // 1
-        console.log(y); // 2
-        console.log(args); // [3, 4, 5]
-    }
-    myFunction(1, 2, 3, 4, 5);
-    ```
+   function myFunction(x, y, ...args) {
+     console.log(x); // 1
+     console.log(y); // 2
+     console.log(args); // [3, 4, 5]
+   }
+   myFunction(1, 2, 3, 4, 5);
+   ```
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/50291544/214176475-a870da5d-7a3a-46b5-9068-8aecdbbcf9c0.png" height="300px" />
@@ -1093,11 +1093,120 @@ console.log(y);
 
 ### DOM manipulation and event handling
 
-The Document Object Model (DOM) is an interface used to access and manipulate the content of a web page. JavaScript can be used to interact with the DOM, for example, to change the content, style, or layout of a page. Event handling is used to respond to user interactions with a web page, such as clicks, mouseovers, and key presses.
+DOM (Document Object Model) manipulation refers to the process of updating, adding, or removing elements from an HTML or XML document using JavaScript.
+
+The DOM is a tree-like structure of nodes, where each node represents an HTML or XML element.
+The DOM can be manipulated using the DOM API, which provides a set of methods and properties for accessing and modifying elements in the document.
+
+Here are some common ways of manipulating the DOM using JavaScript:
+
+- **Accessing elements**: You can access elements in the DOM by using the `getElementById`,
+  `getElementsByTagName`, and `querySelector` and `querySelectorAll` methods.
+  These methods allow you to select elements based on their id, class, tag name, and CSS selectors.
+
+  ```js
+  let myDiv = document.getElementById("myDiv");
+  console.log(myDiv);
+
+  let myDivs = document.getElementsByClassName("myDiv");
+  console.log(myDivs);
+
+  let myDivs = document.querySelectorAll(".myDiv");
+  console.log(myDivs);
+  ```
+
+- **Modifying elements**: Once you have accessed an element, you can modify its content and attributes using the DOM API.
+  You can use the `innerHTML`, `innerText`, `textContent`, `setAttribute` and other properties to modify the content and attributes of an element.
+
+  ```js
+  let myDiv = document.getElementById("myDiv");
+  myDiv.innerHTML = "New content";
+
+  let myImg = document.getElementById("myImg");
+  myImg.setAttribute("src", "new-image.jpg");
+  ```
+
+- **Adding and removing elements**: You can use the `createElement`, `createTextNode`, `appendChild`,
+  `insertBefore`, `removeChild`, and `replaceChild` methods to add and remove elements from the DOM.
+
+  ```js
+  let newDiv = document.createElement("div");
+  newDiv.innerHTML = "New div";
+
+  let container = document.getElementById("container");
+  container.appendChild(newDiv);
+
+  container.removeChild(newDiv);
+  ```
+
+- **Event listeners**: You can use addEventListener method to attach event listeners to elements in the DOM.
+  This allows you to run a specific function when a specific event occurs on an element.
+
+  ```js
+  let myButton = document.getElementById("myButton");
+  myButton.addEventListener("click", function () {
+    console.log("Button clicked");
+  });
+  ```
+
+### Event Handling
+
+Event handling in JavaScript allows you to specify what should happen when a specific event occurs on an element in the DOM.
+Events are actions that occur in the browser, such as a user clicking on a button, hovering over an element, or a page finishing loading.
+
+The DOM provides a way to attach event listeners to elements, using the `addEventListener` method.
+The `addEventListener` method takes two arguments:
+
+1. the type of event to listen for,
+2. and a function to call when the event occurs.
+
+```js
+let myButton = document.getElementById("myButton");
+myButton.addEventListener("click", function () {
+  console.log("Button clicked");
+});
+```
+
+In the example above, an event listener is attached to the button element with an id of "myButton".
+The listener is listening for the "click" event, and when the event occurs, the function passed to the addEventListener method is executed.
+
+There are many different types of events in JavaScript, such as:
+
+- `click`: occurs when an element is clicked
+- `mouseover`: occurs when the mouse pointer is moved over an element
+- `submit`: occurs when a form is submitted
+- `load`: occurs when a page finishes loading
+- `keydown`: occurs when a key is pressed down
+
+You can also remove an event listener using the `removeEventListener` method, which takes the same arguments as the `addEventListener` method.
+
+```js
+let myButton = document.getElementById("myButton");
+let listener = function () {
+  console.log("Button clicked");
+};
+myButton.addEventListener("click", listener);
+myButton.removeEventListener("click", listener);
+```
+
+In addition to the `addEventListener` method, you can also attach event listeners using the `on` prefix and the event name,
+such as `onclick`, `onmouseover`, `onsubmit`, etc.
+
+```js
+let myButton = document.getElementById("myButton");
+myButton.onclick = function () {
+  console.log("Button clicked");
+};
+```
+
+_It's important to keep in mind that when you attach an event listener using the on prefix,
+it will overwrite any existing listener that was previously attached to the element._
 
 ### Browser developer tools
 
-Browser developer tools are built-in tools that allow developers to inspect and debug web pages. These tools can be used to inspect the DOM, view network requests, and debug JavaScript code. They can also be used to test and optimize web pages for performance.
+Browser developer tools are built-in tools that allow developers to inspect and debug web pages.
+These tools can be used to inspect the DOM, view network requests, and debug JavaScript code.
+They can also be used to test and optimize web pages for performance.
 
 Here are some of the key features of browser developer tools:
 
@@ -1169,3 +1278,7 @@ And if you have any question or need help don't hesitate to ask me.
 <!-- ![variables](https://user-images.githubusercontent.com/50291544/214043879-f04dac18-86f1-485c-aaf0-ace481b207dc.jpg) -->
 <!-- ![no-meme](https://user-images.githubusercontent.com/50291544/214045534-ea3aad6b-99aa-4316-a568-b21ecf9f0609.png) -->
 <!-- ![async](https://user-images.githubusercontent.com/50291544/214175741-d6e43b00-9a09-40fd-be6e-2799799b93a3.png) -->
+
+```
+
+```
